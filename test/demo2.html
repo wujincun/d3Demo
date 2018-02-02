@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>D3制作力导向关系图</title>
+</head>
+<body>
+<div class="container" id="main_2"></div>
+<script type='text/javascript' src='js/jquery-3.1.1.min.js'></script>
+<script src="js/d3.v3.min.js"></script>
+<script type="text/javascript">
+    var index = 0;
+    var width = 1140, height = 1000;
+    var color = ["#FF8000", "#9393FF", "#0080FF"];
+    var force = d3.layout.force()/*layout将json格式转化为力学图可用的格式*/
+            .linkDistance(80)/*指定结点连接线的距离，默认为20*/
+            .charge(-600)/*顶点的电荷数。该参数决定是排斥还是吸引，数值越小越互相排斥*/
+            .size([width, height]);/*作用域*/
+    var svg;
+    $(document).ready(function () {
+        var jstr = {
+            "nodes": [
+                {"name": "中国", "group": 1, "index": 0},
+                {"name": "内蒙古", "group": 2, "index": 1},
+                {"name": "猫咪", "group": 3, "index": 2},
+                {"name": "四川", "group": 2, "index": 3},
+                {"name": "棕熊", "group": 2, "index": 4},
+                {"name": "臭豆腐", "group": 3, "index": 5},
+                {"name": "小猪猪", "group": 2, "index": 6},
+                {"name": "湖南", "group": 2, "index": 7},
+                {"name": "大熊猫", "group": 3, "index": 8},
+                {"name": "北京", "group": 2, "index": 9},
+                {"name": "雾霾", "group": 3, "index": 10}
+            ],
+            "links": [{"source": 0, "target": 1},
+                {"source": 1, "target": 2},
+                {"source": 0, "target": 3},
+                {"source": 3, "target": 8},
+                {"source": 0, "target": 4},
+                {"source": 0, "target": 6},
+                {"source": 0, "target": 7},
+                {"source": 7, "target": 5},
+                {"source": 0, "target": 9},
+                {"source": 9, "target": 10},
+                {"source": 4, "target": 5}
+            ]
+        };
+        $("#main_2").html(conduct(jstr));/*在$(“#main_2”)作用域内画图*/
+    });
+    function conduct(graph, link) {
+        var dd = $('<div class="d3strench" id="d3strench"></div>');
+        $("#main_2").append(dd);
+        /*D3采用SVG来更加生动展现数据，此处设置svg的基本样式*/
+        svg = d3.select(".d3strench").append("svg")
+                .attr("width", 1140)
+                .attr("height", height)
+                .attr('border', 'red')
+                .style({
+                    'margin': '0 auto',
+                    'display': 'block'
+                });
+        var nodes = graph.nodes.slice(), /*nodes() 里传入顶点的数组*/
+                links = [],
+                bilinks = [];
+        /*将数据组装成source-->target的形式*/
+        graph.links.forEach(function (link) {
+            var s = nodes[link.source],
+                    t = nodes[link.target],
+                    i = {}; // 中间节点
+            nodes.push(i);
+            links.push({source: s, target: i}, {source: i, target: t});
+            bilinks.push([s, i, t]);
+        });
