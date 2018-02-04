@@ -1,0 +1,25 @@
+{
+  "name": "d3demo",
+  "version": "1.0.0",
+  "description": "d3 demo",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wujincun/d3Demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wujincun/d3Demo/issues"
+  },
+  "homepage": "https://github.com/wujincun/d3Demo#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
