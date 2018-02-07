@@ -30,9 +30,9 @@ var width = 960,
     root;
 
 var force = d3.layout.force()
-    .linkDistance(80)
-    .charge(-120)
-    .gravity(.05)
+    .linkDistance(80) //取得或者设置链接距离,默认为20
+    .charge(-120) //取得或者设置电荷强度,该参数决定是排斥还是吸引，数值越小越互相排斥
+    .gravity(.05) //取得或者设置重力强度,数值大小有什么用？？
     .size([width, height])
     .on("tick", tick);
 
@@ -51,14 +51,16 @@ d3.json("data/force.json", function(error, json) {
 });
 
 function update() {
-  var nodes = flatten(root),
-      links = d3.layout.tree().links(nodes);
+  var nodes = flatten(root), //给节点以标识 id，并把所有的节点都放在一个数组里
+      links = d3.layout.tree().links(nodes); //计算树节点的父-子连接
+      console.log(nodes)
+      console.log(links)
 
   // Restart the force layout.
-  force
-      .nodes(nodes)
-      .links(links)
-      .start();
+  force  //???wu
+      .nodes(nodes) //取得或者设置布局的节点数组。 参数？？
+      .links(links) //取得或者设置节点间的链接数组。 参数？？？
+      .start();  //当节点变化时启动或者重启模拟。
 
   // Update links.
   link = link.data(links, function(d) { return d.target.id; });
@@ -76,7 +78,7 @@ function update() {
   var nodeEnter = node.enter().append("g")
       .attr("class", "node")
       .on("click", click)
-      .call(force.drag);
+      .call(force.drag); //wu ??? force.drag  //给节点绑定拖动行为
 
   nodeEnter.append("circle")
       .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; });
@@ -118,9 +120,9 @@ function click(d) {
 }
 
 // Returns a list of all nodes under the root.
-function flatten(root) {
+function flatten(root) { //给每个node设置id，为了标识
   var nodes = [], i = 0;
-
+  console.log(root)
   function recurse(node) {
     if (node.children) node.children.forEach(recurse);
     if (!node.id) node.id = ++i;
@@ -130,5 +132,7 @@ function flatten(root) {
   recurse(root);
   return nodes;
 }
+
+
 
 </script>

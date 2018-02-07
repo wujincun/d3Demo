@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+<style>
+.node circle {
+    cursor: pointer;
+    stroke: #3182bd;
+    stroke-width: 1.5px;
+}
+
+.node text {
+    font: 10px sans-serif;
+    pointer-events: none;
+    text-anchor: middle;
+}
+line {
+    stroke: #9ecae1;
+    stroke-width: 1.5px;
+}
+line.link {
+    fill: none;
+    stroke: #9ecae1;
+    stroke-width: 1.5px;
+}
+</style>
+
+<body>
+    <svg id="car-svg"></svg>
+    <script src="/js/d3.min.js"></script>
+    <script>
+
+    var greenCar = "data:image/png;base64,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";
+
+    d3.json('data/forceTest.json', function(error, json) {
+        todo(json)
+    })
+
+    //之前人做的
+    function todo(json) {
+        var newData = json.data.carGraph;
+        var nodes = [];
+        var links = [];
+        var labelObj = {};
+        var img = greenCar;
+        var label = [];
+        var allValue = 0;
+        // let nodeIndex = 0;
+        var carValue = newData['carNode'];
+        if (carValue) {
+            //获取车节点图标
+            if (carValue['status'] === 1) {
+                img = orangeCar;
+            }
+            if (carValue['status'] === 2) {
+                img = redCar;
+            }
+            if (carValue['status'] === 3) {
+                img = blueCar;
+            }
+            if (carValue['status'] === 5) {
+                img = lightBlueCar;
+            }
+            //图例   车
+            label.push({ status: img, statusDesc: carValue['statusDesc'] });
+            // add car node
+            nodes.push({ name: '', group: carValue['status'], title: carValue['statusDesc'] });
+            carValue['nodeName'] = nodes.length - 1;
+        }
+        var userValues = newData['userNodes'];
+        if (userValues) {
+            // add user nodes
+            userValues.forEach(function(userValue) {
+                // let value = (userValue['dealProbability'] + Math.random()) * 10;
+                var value = userValue['dealProbability'] || 0.5;
+                var userStatus = userValue['status'];
+                //是否显示节点
+                if (!userValue['isFolded']) { // ???? 
+                    nodes.push({ name: '', group: userStatus, value: value, isCarDealer: userValue['isCarDealer'] });
+                    allValue += value;
+                    userValue['nodeName'] = nodes.length - 1; //wu???
+                }
+                //label文字
+                var statusDesc = userValue['statusDesc'];
+                if (userValue['isCarDealer']) {
+                    statusDesc = '车商' + statusDesc;
+                }
+                if (!labelObj[statusDesc]) {
+                    labelObj[statusDesc] = 1;
+                    label.push({
+                        status: userStatus,
+                        isCarDealer: userValue['isCarDealer'],
+                        statusDesc: statusDesc
+                    });
+                }
+            });
+            // build relation
+            var relationMap_1 = {};
+            userValues.forEach(function(userValue) {
+                var relations = userValue['relations'];
+                relations.forEach(function(relation) {
+                    var relationType = relation['relationType'];
+                    var relationId = relationType['id'];
+                    var relationNode = relationMap_1[relationId];
+                    if (!relationNode) {
+                        relationNode = {
+                            name: relationType['desc'],
+                            group: 20,
+                            num: nodes.length,
+                            title: relationType['desc'],
+                            value: relationType['dealProbability']
+                        };
+                        nodes.push(relationNode);
+                        relationMap_1[relationId] = relationNode;
+                        links.push({ source: carValue['nodeName'], target: relationNode.num });//wu???
+                    } else {
+                        //相同关系出现次数
+                        var count = relationMap_1[relationId]['count'] || 1;
+                        relationMap_1[relationId]['count'] = count + 1;
+                    }
+                    if (userValue['nodeName']) {
+                        links.push({ source: relationNode.num, target: userValue['nodeName'] });//wu???
+                    }
+                });
+            });
+            label.push({ status: 20, statusDesc: '不同的关联原因' });
+            label.unshift({ statusDesc: '圆圈越大成交概率越大' });
+        }
+        var width = 1195,
+            height = 500,
+            radius = 12;
+
+        function fill(n) {
+            if (n === void 0) { n = 21; }
+            var colores_g = ["#077994", "#EF8666", "#22aa99", "#EF7742", "#CCCD45", "#34495E", "#F9BFD7", "#843D1F", "#617E48", "#316395", "#994499", "#EC7289", "#aaaa11", "#6633cc", "#e67300", "#dc3912", "#651067", "#329262", "#24a524", "#ff0000", '#000', 'transparent'];
+            return colores_g[n];
+        }
+        var force = d3.layout.force()
+            .gravity(.1)
+            .charge(-500)
+            .linkDistance(function(d) {
+                var times = nodes.length > 30 ? 1 : 1.5;
+                return d.source.name ? 80 * times : 100 * times;
+            })
+            .size([width - 100, height]);
+        var svg = d3.select("#car-svg")
+            .attr("width", width)
+            .style("border", '1px solid #ccc')
+            .attr("height", height);
+        var graph = {
+            nodes: nodes,
+            links: links
+        };
+        console.log(nodes)
+        console.log(links)
+        var link = svg.selectAll("line")
+            .data(graph.links)
+            .enter().append("line");
+        var g = svg.selectAll("g")
+            .data(graph.nodes)
+            .enter().append("g").call(force.drag);
+        g.filter(function(d, i) {
+                return d.group === 20;
+            })
+            .append('rect')
+            .attr("width", 12)
+            .attr("height", 12)
+            .attr("x", -6)
+            .attr("y", -6)
+            .style("fill", fill(20));
+        //车商用户
+        g.filter(function(d, i) {
+                return d.group !== 20 && d.isCarDealer;
+            }).append('polygon')
+            .attr({
+                points: '0,-6 -6,6 6,6 '
+            })
+            .style("fill", function(d) {
+                return fill(d.group);
+            })
+            .style("stroke", function(d) {
+                return d3.rgb(fill(d.group)).darker();
+            });
+        //非车商用户
+        g.filter(function(d, i) {
+                return d.group !== 20 && !d.isCarDealer;
+            })
+            .append('circle')
+            .attr("class", "car-circle")
+            .attr("r", function(d) {
+                var v = d.value || 0.5;
+                var midVal = allValue / nodes.length; //显示的节点数/节点的个数
+                var range = v + v - midVal;
+                return radius * range; //为什么半径这么算
+            })
+            .style("fill", function(d) {
+                return fill(d.group);
+            })
+            .style("stroke", function(d) {
+                return d3.rgb(fill(d.group)).darker();
+            });
+        g.append("title")
+            .text(function(d) {
+                return d.title;
+            });
+        //第一个g元素添加车图片
+        svg.select('g').append('rect')
+            .attr("fill", "#fff")
+            .attr("x", -15)
+            .attr("y", -15)
+            .attr('width', '40')
+            .attr('height', '40');
+        svg.select('g').append('image')
+            .attr('xlink:href', img)
+            .attr('x', '-15')
+            .attr('y', '-15')
+            .attr('width', '40')
+            .attr('height', '40'); //怎么两遍？？？
+        var text = g.append('text')
+            .text(function(d) {
+                var n = d.name;
+                if (d.count > 20) {
+                    n = d.name + '(' + d.count + ')';
+                }
+                return n;
+            })
+            .attr("fill", "#666")
+            .attr("dx", 10)
+            .attr("dy", -6);
+        //添加图例
+        //如果是行为节点则添加方块
+        //人员节点添加圆形
+        var legend = svg.append("g")
+            .attr("class", "legend")
+            .attr("transform", function(d) {
+                return "translate(" + 0 + "," + 125 + ")";
+            })
+            .attr("height", 200)
+            .attr("width", 100);
+            console.log(label)
+        legend.selectAll("g").data(label)
+            .enter()
+            .append('g')
+            .each(function(d, i) {
+                var g = d3.select(this);
+                if (typeof d.status === "string") {
+                    g.append('image')
+                        .attr('xlink:href', img)
+                        .attr("x", width - 200)
+                        .attr("y", i * 25 + 10)
+                        .attr('width', '10')
+                        .attr('height', '10');
+                } else {
+                    if (d.status === 20) {
+                        g.append("rect")
+                            .attr("x", width - 200)
+                            .attr("y", i * 25 + 10)
+                            .attr("width", 10)
+                            .attr("height", 10)
+                            .style("fill", fill(d['status']));
+                    } else {
+                        if (d.isCarDealer) {
+                            g.append('polygon')
+                                .attr({
+                                    points: (width - 195) + ',' + (i * 25 + 12) + ' ' + (width - 195 - 6) + ',' + (i * 25 + 15 + 3) + ' ' + (width - 195 + 6) + ',' + (i * 25 + 15 + 3)
+                                })
+                                .style("fill", function(d) {
+                                    return fill(d.status);
+                                })
+                                .style("stroke", function(d) {
+                                    return d3.rgb(fill(d.status)).darker();
+                                });
+                        } else {
+                            g.append('circle')
+                                .attr("cx", width - 195)
+                                .attr("cy", i * 25 + 15)
+                                .attr("r", 5)
+                                .style("fill", fill(d['status']));
+                        }
+                    }
+                }
+                g.append("text")
+                    .attr("x", width - 180)
+                    .attr("y", i * 25 + 20)
+                    .attr("height", 30)
+                    .attr("width", 100)
+                    .style("fill", d['status'] ? fill(d['status']) : '')
+                    .text(d['statusDesc']);
+            });
+        force
+            .nodes(graph.nodes)
+            .links(graph.links)
+            .on("tick", tick)
+            .start();
+
+        function tick() {
+            
+            g.attr("transform", function(d) {
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+            link.attr("x1", function(d) {
+                    return d.source.x;
+                })
+                .attr("y1", function(d) {
+                    return d.source.y;
+                })
+                .attr("x2", function(d) {
+                    return d.target.x;
+                })
+                .attr("y2", function(d) {
+                    return d.target.y;
+                });
+        }
+    }
+    </script>

@@ -1,0 +1,2759 @@
+{
+    "result": "success",
+    "data":
+    {
+        "mappingGraph":
+        {
+            "title": "关联信息: ",
+            "verticesList": [
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "0b65a725-0ce2-445d-b267-810bff31bd79",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "1b070a7f-5947-45da-98c0-3e22f88cb395",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "1ebf3ab2-c97d-4647-dd92-9a8f1f197636",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "204e9c2d-c9ed-4776-8fa9-421d58f2026a",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "22d9dfbf-f8b8-4ac9-a782-2932e415b934",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "23e1923e-7771-433d-df05-ba453e80ed15",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "4556c51f-e8e0-4150-93c7-44989a20ef31",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "898a1b1b-09bf-4158-b920-ea85762d6f83",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "95b73e86-1a41-49e7-eb65-17d30f84b526",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "A1FEBECB-59B1-4581-8356-FD2FA7BAB395",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "FD79426F-5242-4D64-8A37-3289A2068F96",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "b67952c3-d650-4963-9036-2668f9fbf527",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "ba6ea460-a48d-4aa1-ff9c-7532245fe690",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "dd095491-8d05-4a99-8b7b-509b78abdf57",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "e82679a7-7cb9-48c4-d1f2-94ea5e5e5d27",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d",
+                    "type": "phone"
+                },
+                {
+                    "identity": "f10406b7-1201-4638-a17e-9e93d65bcca9",
+                    "type": "guid"
+                }],
+                [
+                {
+                    "identity": "898a1b1b-09bf-4158-b920-ea85762d6f83",
+                    "type": "guid"
+                },
+                {
+                    "identity": "v101sl74cI1XHvt+DZE7wpxQ\u003d\u003d",
+                    "type": "encrypt_phone"
+                }],
+                [
+                {
+                    "identity": "FD79426F-5242-4D64-8A37-3289A2068F96",
+                    "type": "guid"
+                },
+                {
+                    "identity": "v1JDwUiyJ8CMZWxjMKOm2/Hg\u003d\u003d",
+                    "type": "encrypt_phone"
+                }],
+                [
+                {
+                    "identity": "b67952c3-d650-4963-9036-2668f9fbf527",
+                    "type": "guid"
+                },
+                {
+                    "identity": "v1BK0Uhpxa6MaJLJ7yilqP5w\u003d\u003d",
+                    "type": "encrypt_phone"
+                }],
+                [
+                {
+                    "identity": "dd095491-8d05-4a99-8b7b-509b78abdf57",
+                    "type": "guid"
+                },
+                {
+                    "identity": "v1REgnSo7Xf75QsuKSh2/Qzw\u003d\u003d",
+                    "type": "encrypt_phone"
+                }]
+            ],
+            "phoneSet": ["v1REgnSo7Xf75QsuKSh2/Qzw\u003d\u003d", "v101sl74cI1XHvt+DZE7wpxQ\u003d\u003d", "v1JDwUiyJ8CMZWxjMKOm2/Hg\u003d\u003d", "v1M+7I9XTA9PrS644EZDX3YA\u003d\u003d", "v1BK0Uhpxa6MaJLJ7yilqP5w\u003d\u003d"],
+            "guidSet": ["204e9c2d-c9ed-4776-8fa9-421d58f2026a", "dd095491-8d05-4a99-8b7b-509b78abdf57", "0b65a725-0ce2-445d-b267-810bff31bd79", "23e1923e-7771-433d-df05-ba453e80ed15", "898a1b1b-09bf-4158-b920-ea85762d6f83", "e82679a7-7cb9-48c4-d1f2-94ea5e5e5d27", "ba6ea460-a48d-4aa1-ff9c-7532245fe690", "FD79426F-5242-4D64-8A37-3289A2068F96", "4556c51f-e8e0-4150-93c7-44989a20ef31", "95b73e86-1a41-49e7-eb65-17d30f84b526", "f10406b7-1201-4638-a17e-9e93d65bcca9", "A1FEBECB-59B1-4581-8356-FD2FA7BAB395", "1ebf3ab2-c97d-4647-dd92-9a8f1f197636", "22d9dfbf-f8b8-4ac9-a782-2932e415b934", "1b070a7f-5947-45da-98c0-3e22f88cb395", "b67952c3-d650-4963-9036-2668f9fbf527"]
+        },
+        "baseInfo":
+        {
+            "title": "基本信息: ",
+            "labels": [
+            {
+                "label": "身份",
+                "value": "真C客户"
+            },
+            {
+                "label": "线上浏览车源数",
+                "value": "14"
+            },
+            {
+                "label": "线上活跃天数",
+                "value": "11"
+            },
+            {
+                "label": "砍价线索数",
+                "value": "4"
+            }]
+        },
+        "intention":
+        {
+            "title": "用户标签: ",
+            "labels": [
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mPrice",
+                "class2Description": "价格",
+                "label": "mPrice",
+                "value": [192083.27888489427, 221278.4255373888, 336757.7978024096, 0.008741224870045432],
+                "description": "19.2  -  33.7万",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mCheling",
+                "class2Description": "车龄",
+                "label": "mCheling",
+                "value": [1.0, 1.0, 1.0, 0.008741224870045432],
+                "description": "1.0  -  1.0年",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mRoadHaul",
+                "class2Description": "行驶里程",
+                "label": "mRoadHaul",
+                "value": [9089.620840874812, 15478.02805785233, 24169.636613078765, 0.008741224870045432],
+                "description": "0.9  -  2.4万公里",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mAirDisplacement",
+                "class2Description": "排量",
+                "label": "mAirDisplacement",
+                "value": [1.6382017316731379, 1.7910085629982573, 1.956743440660624, 0.008741224870045432],
+                "description": "1.6  -  2.0L",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mTransferNum",
+                "class2Description": "过户次数",
+                "label": "mTransferNum",
+                "value": [0.0, 0.0, 0.0, 0.008741224870045432],
+                "description": "0.0  -  0.0次",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "statistic",
+                "class1Description": "统计信息",
+                "class2": "a",
+                "class2Description": "线上",
+                "level": "44%",
+                "percent": 0.43545157596996387,
+                "label": "a_uoc",
+                "value": 14.0,
+                "description": "线上浏览车源数",
+                "timestamp": 1517939209531
+            },
+            {
+                "class1": "statistic",
+                "class1Description": "统计信息",
+                "class2": "a",
+                "class2Description": "线上",
+                "level": "1%",
+                "percent": 0.009471597740929098,
+                "label": "a_uod",
+                "value": 11.0,
+                "description": "线上活跃天数",
+                "timestamp": 1517939209531
+            },
+            {
+                "class1": "user_info",
+                "class1Description": "用户属性",
+                "level": "9%",
+                "percent": 0.09468943388249682,
+                "label": "user_info_uoa",
+                "value": 11.0,
+                "description": "线上活跃",
+                "timestamp": 1517939209531
+            },
+            {
+                "class1": "statistic",
+                "class1Description": "统计信息",
+                "class2": "b",
+                "class2Description": "线下",
+                "level": "50%",
+                "percent": 0.502464192613524,
+                "label": "b_uba",
+                "value": 4.0,
+                "description": "砍价线索数",
+                "timestamp": 1517939209531
+            },
+            {
+                "class1": "user_info",
+                "class1Description": "用户属性",
+                "class2": "b_usl",
+                "class2Description": "成交概率分级",
+                "label": "b_usl_3.0",
+                "value": 3.0,
+                "description": "低成交概率客户",
+                "timestamp": 1517939209531
+            },
+            {
+                "class1": "a_ult",
+                "class1Description": "用户生命周期",
+                "label": "a_ult_2.0",
+                "value": 2.0,
+                "description": "成熟用户",
+                "timestamp": 1517939209531
+            },
+            {
+                "class1": "user_info",
+                "class1Description": "用户属性",
+                "class2": "b_iet",
+                "class2Description": "员工身份",
+                "label": "b_iet_1.0",
+                "value": 1.0,
+                "description": "在职员工",
+                "timestamp": 1517939209531
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mCityId",
+                "class2Description": "城市",
+                "label": "mCityId_12",
+                "value": 0.008741224870045432,
+                "description": "北京",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mFuelType",
+                "class2Description": "燃油类型",
+                "label": "mFuelType_15",
+                "value": 0.008741224870045432,
+                "description": "汽油",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mSeats",
+                "class2Description": "座位",
+                "label": "mSeats_5",
+                "value": 0.008741224870045432,
+                "description": "5座车",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mGearbox",
+                "class2Description": "变速箱",
+                "label": "mGearbox_2",
+                "value": 0.008741224870045432,
+                "description": "自动",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mSourceLevel",
+                "class2Description": "车源等级",
+                "label": "mSourceLevel_1",
+                "value": 0.007446338042739943,
+                "description": "A级车源",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mSourceLevel",
+                "class2Description": "车源等级",
+                "label": "mSourceLevel_2",
+                "value": 0.00129488682730549,
+                "description": "B级车源",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mGuobie",
+                "class2Description": "国别",
+                "label": "mGuobie_4",
+                "value": 0.00725187069646827,
+                "description": "德系",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mGuobie",
+                "class2Description": "国别",
+                "label": "mGuobie_7",
+                "value": 9.723367313583646E-4,
+                "description": "其他",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mGuobie",
+                "class2Description": "国别",
+                "label": "mGuobie_3",
+                "value": 5.170174422187984E-4,
+                "description": "国产",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mAutoType",
+                "class2Description": "车辆类型",
+                "label": "mAutoType_25",
+                "value": 0.006416639322799614,
+                "description": "SUV",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mAutoType",
+                "class2Description": "车辆类型",
+                "label": "mAutoType_2",
+                "value": 0.002324585547245818,
+                "description": "轿车",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mCarriages",
+                "class2Description": "车辆结构",
+                "label": "mCarriages_0",
+                "value": 0.006416639322799614,
+                "description": "无厢",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mCarriages",
+                "class2Description": "车辆结构",
+                "label": "mCarriages_3",
+                "value": 0.002324585547245818,
+                "description": "三厢",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mEmissionStandard",
+                "class2Description": "排放标准",
+                "label": "mEmissionStandard_32",
+                "value": 0.0061258170115515405,
+                "description": "国五",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mEmissionStandard",
+                "class2Description": "排放标准",
+                "label": "mEmissionStandard_31",
+                "value": 0.0026154078584938924,
+                "description": "国四",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mCarColor",
+                "class2Description": "颜色",
+                "label": "mCarColor_2",
+                "value": 0.005608799569332742,
+                "description": "白色",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mCarColor",
+                "class2Description": "颜色",
+                "label": "mCarColor_1",
+                "value": 0.0013248571956856708,
+                "description": "黑色",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mCarColor",
+                "class2Description": "颜色",
+                "label": "mCarColor_4",
+                "value": 9.723367313583646E-4,
+                "description": "深灰色",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mCarColor",
+                "class2Description": "颜色",
+                "label": "mCarColor_11",
+                "value": 8.352313736686553E-4,
+                "description": "香橙色",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mTag",
+                "class2Description": "车系",
+                "label": "mTag_gla",
+                "value": 0.0046364628379743774,
+                "description": "奔驰GLA级",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mTag",
+                "class2Description": "车系",
+                "label": "mTag_minicountryman",
+                "value": 9.723367313583646E-4,
+                "description": "MINI Countryman",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mTag",
+                "class2Description": "车系",
+                "label": "mTag_haorui",
+                "value": 9.723367313583646E-4,
+                "description": "昊锐",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mTag",
+                "class2Description": "车系",
+                "label": "mTag_maiteng",
+                "value": 8.352313736686553E-4,
+                "description": "迈腾",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mTag",
+                "class2Description": "车系",
+                "label": "mTag_bmw-x5",
+                "value": 8.078397534668724E-4,
+                "description": "宝马X5",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mTag",
+                "class2Description": "车系",
+                "label": "mTag_h7",
+                "value": 5.170174422187984E-4,
+                "description": "红旗H7",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mBrand",
+                "class2Description": "品牌",
+                "label": "mBrand_benz",
+                "value": 0.0046364628379743774,
+                "description": "奔驰",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mBrand",
+                "class2Description": "品牌",
+                "label": "mBrand_skoda",
+                "value": 9.723367313583646E-4,
+                "description": "斯柯达",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mBrand",
+                "class2Description": "品牌",
+                "label": "mBrand_mini",
+                "value": 9.723367313583646E-4,
+                "description": "MINI",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mBrand",
+                "class2Description": "品牌",
+                "label": "mBrand_dazhong",
+                "value": 8.352313736686553E-4,
+                "description": "大众",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mBrand",
+                "class2Description": "品牌",
+                "label": "mBrand_bmw",
+                "value": 8.078397534668724E-4,
+                "description": "宝马",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "willingness_to_purchase_car",
+                "class1Description": "购车意向",
+                "class2": "mBrand",
+                "class2Description": "品牌",
+                "label": "mBrand_hongqi",
+                "value": 5.170174422187984E-4,
+                "description": "红旗",
+                "timestamp": 1517940338317
+            },
+            {
+                "class1": "finance",
+                "class1Description": "金融属性",
+                "class2": "a",
+                "class2Description": "贷款意向",
+                "level": "100%",
+                "percent": 0.9999856354633461,
+                "label": "finance_fLoan",
+                "value": 3.5681192317649096E-5,
+                "description": "金融贷款意向",
+                "timestamp": 1517939209531
+            },
+            {
+                "class1": "finance",
+                "class1Description": "金融属性",
+                "class2": "a",
+                "class2Description": "贷款意向",
+                "level": "100%",
+                "percent": 0.9999952618371671,
+                "label": "a_loan",
+                "value": 1.7840596158824548E-5,
+                "description": "线上贷款倾向",
+                "timestamp": 1517939209531
+            },
+            {
+                "class1": "user_info",
+                "class1Description": "用户属性",
+                "class2": "b",
+                "class2Description": "线下行为",
+                "level": "100%",
+                "percent": 0.9999977573421813,
+                "label": "b_bargain",
+                "value": 1.1784240246985205E-43,
+                "description": "砍价",
+                "timestamp": 1517939209531
+            },
+            {
+                "class1": "user_info",
+                "class1Description": "用户属性",
+                "class2": "b",
+                "class2Description": "线下行为",
+                "level": "100%",
+                "percent": 0.9999958322161357,
+                "label": "b_reserve",
+                "value": 4.821435800909294E-45,
+                "description": "预约看车",
+                "timestamp": 1517939209531
+            }]
+        },
+        "userBehavior":
+        {
+            "title": "用户详细行为: ",
+            "actions": [
+            {
+                "time": "2016-09-20 19:18:06",
+                "summary": "首次访问",
+                "carDescription": "线下",
+                "platform": "线下",
+                "description": "买家线索",
+                "actionType": 1,
+                "typeDesc": "首次访问"
+            },
+            {
+                "time": "2017-09-07 15:45:34",
+                "summary": "第1次砍价",
+                "platform": "线下",
+                "description": "线索",
+                "actionType": 0
+            },
+            {
+                "time": "2017-09-07 15:51:14",
+                "summary": "第2次砍价",
+                "platform": "线下",
+                "description": "线索",
+                "actionType": 0
+            },
+            {
+                "time": "2017-09-07 15:59:31",
+                "summary": "第3次砍价",
+                "platform": "线下",
+                "description": "线索",
+                "actionType": 0
+            },
+            {
+                "time": "2017-09-07 16:25:25",
+                "summary": "第4次砍价",
+                "platform": "线下",
+                "description": "线索",
+                "actionType": 0
+            }],
+            "detailActions": [
+                [
+                {
+                    "time": "2016-10-17 13:42:59",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-20 16:34:27",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-20 16:36:13",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-20 18:08:06",
+                    "platform": "线下",
+                    "description": "买家线索",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-20 18:23:40",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-20 18:30:09",
+                    "platform": "线下",
+                    "description": "买家线索",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-25 10:48:23",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-25 10:49:38",
+                    "platform": "线下",
+                    "description": "买家线索",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-25 12:19:54",
+                    "platform": "线下",
+                    "description": "买家线索",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-25 12:19:58",
+                    "platform": "线下",
+                    "description": "买家线索",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-25 12:20:20",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-25 12:21:36",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-25 12:48:28",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-25 12:51:14",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-25 12:55:35",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-25 14:14:20",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-10-25 15:34:40",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-11-01 14:10:22",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-11-01 17:50:17",
+                    "platform": "线下",
+                    "description": "买家线索",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-11-01 21:03:16",
+                    "platform": "线下",
+                    "description": "sem客户渠道",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-11-01 21:03:20",
+                    "platform": "线下",
+                    "description": "买家线索",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-11-02 13:55:55",
+                    "platform": "线下",
+                    "description": "sem客户渠道",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-11-02 13:55:55",
+                    "platform": "线下",
+                    "description": "买家线索",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-11-02 15:34:25",
+                    "platform": "线下",
+                    "description": "sem客户渠道",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-11-02 15:34:28",
+                    "platform": "线下",
+                    "description": "买家线索",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-11-21 18:13:21",
+                    "platform": "线下",
+                    "description": "买家线索",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-11-21 18:13:22",
+                    "platform": "线下",
+                    "description": "sem客户渠道",
+                    "actionType": 0
+                },
+                {
+                    "time": "2016-11-24 12:54:20",
+                    "platform": "线下",
+                    "description": "销售采集客户意向",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-02-21 18:04:58",
+                    "platform": "线下",
+                    "description": "sem客户渠道",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-03-21 21:08:23",
+                    "platform": "线下",
+                    "description": "订阅信息",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-04-11 14:15:58",
+                    "platform": "线下",
+                    "description": "金融贷款用户",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-06-17 12:21:49",
+                    "platform": "线下",
+                    "description": "sem客户渠道",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-06-27 13:02:42",
+                    "platform": "线下",
+                    "description": "sem客户渠道",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-06-27 13:02:42",
+                    "platform": "线下",
+                    "description": "sem客户渠道",
+                    "actionType": 0
+                }],
+                [],
+                [],
+                [],
+                [
+                {
+                    "time": "2017-09-28 15:13:34",
+                    "platform": "线下",
+                    "description": "新车线索",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-13 18:39:17",
+                    "platform": "pc",
+                    "description": "列表页_品牌过滤_MINI",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-13 19:17:53",
+                    "platform": "pc",
+                    "description": "列表页_点击排序_车龄",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-18 14:14:03",
+                    "platform": "app",
+                    "description": "搜索页_搜索_尼桑",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-18 14:14:35",
+                    "carDescription": "日产_骐达_6.96万_6.97万公里_哈尔滨市",
+                    "platform": "app",
+                    "clueId": 20703858,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-20 11:07:31",
+                    "platform": "pc",
+                    "description": "列表页_品牌过滤_MINI",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-21 12:39:01",
+                    "platform": "app",
+                    "description": "搜索页_搜索_尼桑",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-21 12:39:36",
+                    "carDescription": "日产_逍客_8.50万_3.73万公里_上海市",
+                    "platform": "app",
+                    "clueId": 20043240,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-21 12:43:10",
+                    "carDescription": "日产_颐达_3.50万_5.28万公里_南京市",
+                    "platform": "app",
+                    "clueId": 21199127,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-21 12:44:37",
+                    "carDescription": "日产_轩逸_4.18万_9.98万公里_石家庄市",
+                    "platform": "app",
+                    "clueId": 21157989,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-21 12:45:19",
+                    "carDescription": "日产_逍客_7.50万_13.20万公里_长沙市",
+                    "platform": "app",
+                    "clueId": 21180770,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-21 12:45:59",
+                    "carDescription": "日产_阳光_4.30万_6.49万公里_长沙市",
+                    "platform": "app",
+                    "clueId": 20076596,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-22 10:15:07",
+                    "carDescription": "别克_英朗_9.30万_0.78万公里_北京市",
+                    "platform": "wap",
+                    "clueId": 20772407,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-22 10:16:13",
+                    "platform": "wap",
+                    "clueId": 20772407,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-22 10:41:45",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_英朗",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-22 10:42:01",
+                    "platform": "pc",
+                    "clueId": 20772407,
+                    "description": "详情页_详情页行为_查看贷款",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-22 15:00:25",
+                    "carDescription": "本田_思域_5.50万_7.60万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21271258,
+                    "description": "详情页_详情页行为_查看贷款",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-22 15:38:35",
+                    "carDescription": "兰博基尼_兰博基尼Gallardo_160.00万_2.90万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 19331559,
+                    "description": "详情页_详情页行为_砍价",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-22 15:38:41",
+                    "platform": "pc",
+                    "clueId": 19331559,
+                    "description": "详情页_详情页行为_预约看车",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-23 15:48:38",
+                    "carDescription": "福特_福克斯_8.62万_2.70万公里_北京市",
+                    "platform": "wap",
+                    "clueId": 20293435,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-23 15:53:29",
+                    "platform": "wap",
+                    "clueId": 20772407,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-23 15:54:53",
+                    "platform": "wap",
+                    "clueId": 20293435,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-24 15:46:59",
+                    "platform": "wap",
+                    "clueId": 20772407,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-24 15:48:49",
+                    "platform": "pc",
+                    "description": "列表页_品牌过滤_别克",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-24 15:48:51",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_英朗",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-24 16:37:43",
+                    "carDescription": "现代_领动_8.91万_1.68万公里_北京市",
+                    "platform": "wap",
+                    "clueId": 21335468,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-24 16:58:07",
+                    "platform": "wap",
+                    "clueId": 21335468,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-24 16:58:32",
+                    "platform": "wap",
+                    "clueId": 20772407,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-24 16:58:50",
+                    "platform": "wap",
+                    "clueId": 20293435,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-24 19:55:24",
+                    "platform": "wap",
+                    "clueId": 20293435,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-24 20:33:24",
+                    "carDescription": "日产_骐达_7.70万_4.70万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21487216,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 16:59:21",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_英菲尼迪ESQ",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 16:59:40",
+                    "carDescription": "英菲尼迪_英菲尼迪ESQ_14.00万_3.30万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21028690,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:07:53",
+                    "platform": "pc",
+                    "description": "列表页_品牌过滤_MINI",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:08:19",
+                    "carDescription": "MINI_MINI Clubman_15.00万_4.52万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21259812,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:08:39",
+                    "carDescription": "MINI_MINI_19.50万_3.27万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 19847554,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:09:09",
+                    "carDescription": "MINI_MINI_13.45万_3.80万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 18933428,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:09:34",
+                    "carDescription": "MINI_MINI_40.00万_0.73万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 14705763,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:11:32",
+                    "carDescription": "MINI_MINI Paceman_20.60万_5.00万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 19362375,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:13:30",
+                    "carDescription": "MINI_MINI Countryman_19.30万_2.30万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21615801,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:19:27",
+                    "carDescription": "马自达_阿特兹_17.70万_0.95万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21016181,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:19:57",
+                    "carDescription": "丰田_凯美瑞_9.50万_6.30万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 18217601,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:25:40",
+                    "carDescription": "标致_标致3008_10.40万_7.93万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 17082487,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:26:24",
+                    "carDescription": "别克_昂科拉_9.20万_2.17万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 16931275,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:27:16",
+                    "carDescription": "本田_本田CR-V_18.00万_2.20万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 20077326,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:27:43",
+                    "carDescription": "丰田_RAV4_14.30万_4.72万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21696282,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:28:25",
+                    "carDescription": "福特_翼虎_15.70万_4.18万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21178092,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:28:39",
+                    "carDescription": "福特_翼搏_6.40万_6.30万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21410527,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:28:54",
+                    "carDescription": "本田_飞度_7.30万_2.81万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 20508928,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:29:29",
+                    "carDescription": "本田_缤智_15.00万_0.61万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21046698,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:30:30",
+                    "carDescription": "日产_天籁_8.50万_12.57万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 18436719,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:30:47",
+                    "carDescription": "本田_雅阁_13.99万_8.60万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21806339,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:31:14",
+                    "carDescription": "丰田_卡罗拉_5.00万_10.86万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 19756228,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:31:54",
+                    "carDescription": "丰田_雷凌_13.50万_1.90万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21103507,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:32:18",
+                    "carDescription": "本田_思域_6.20万_12.16万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 20544100,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:32:32",
+                    "carDescription": "本田_思域_12.50万_1.10万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 20779169,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:34:02",
+                    "carDescription": "马自达_阿特兹_15.00万_2.50万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 20809343,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:40:52",
+                    "platform": "pc",
+                    "clueId": 20809343,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:41:05",
+                    "carDescription": "马自达_阿特兹_14.00万_6.83万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 20751291,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:41:37",
+                    "platform": "pc",
+                    "clueId": 20751291,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:44:31",
+                    "carDescription": "丰田_卡罗拉_10.95万_2.47万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 9497158,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:45:14",
+                    "carDescription": "丰田_卡罗拉_12.50万_0.30万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 20821055,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:45:58",
+                    "platform": "pc",
+                    "clueId": 20821055,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:48:02",
+                    "carDescription": "斯柯达_速派_15.00万_4.10万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 20915262,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 17:48:28",
+                    "carDescription": "斯柯达_明锐_11.00万_1.59万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 18053651,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 18:02:35",
+                    "carDescription": "沃尔沃_沃尔沃XC60_19.40万_6.90万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 18264890,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 18:13:18",
+                    "carDescription": "日产_蓝鸟_9.68万_2.20万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 20963418,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-11-28 18:16:44",
+                    "carDescription": "日产_轩逸_8.10万_12.50万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 19201284,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-04 11:28:03",
+                    "carDescription": "本田_本田CR-Z_7.00万_3.19万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 20162440,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 16:04:59",
+                    "carDescription": "丰田_RAV4_15.00万_5.27万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21868159,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 16:05:14",
+                    "platform": "pc",
+                    "clueId": 21868159,
+                    "description": "详情页_详情页行为_预约看车",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 16:05:48",
+                    "platform": "线下",
+                    "description": "新车线索",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 20:30:32",
+                    "carDescription": "别克_昂科拉_12.20万_0.20万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22084834,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 20:32:16",
+                    "platform": "pc",
+                    "description": "列表页_品牌过滤_MINI",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 20:32:43",
+                    "platform": "pc",
+                    "clueId": 18933428,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 20:59:37",
+                    "carDescription": "本田_飞度_7.05万_3.06万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22089153,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:00:01",
+                    "carDescription": "本田_雅阁_9.50万_6.34万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21670814,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:00:18",
+                    "platform": "pc",
+                    "clueId": 20779169,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:04:36",
+                    "carDescription": "本田_思域_9.00万_13.66万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21403069,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:19:55",
+                    "carDescription": "本田_思域_6.51万_10.52万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21202062,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:21:58",
+                    "carDescription": "本田_思域_9.04万_1.91万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22033839,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:25:25",
+                    "carDescription": "丰田_雷凌_9.30万_5.91万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21929798,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:44:23",
+                    "platform": "pc",
+                    "description": "列表页_价格范围过滤_12.00-16.00万",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:45:44",
+                    "platform": "pc",
+                    "description": "列表页_品牌过滤_MINI",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:46:13",
+                    "carDescription": "MINI_MINI_21.50万_2.90万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21703013,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:46:42",
+                    "carDescription": "MINI_MINI_21.00万_0.28万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21840047,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:48:30",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI Paceman",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:48:34",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI Clubman",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:48:48",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI Countryman",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:50:19",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI Coupe",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:50:28",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI Roadster",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:50:43",
+                    "carDescription": "MINI_MINI Clubman_27.65万_1.30万公里_重庆市",
+                    "platform": "pc",
+                    "clueId": 21940332,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:55:09",
+                    "platform": "pc",
+                    "description": "列表页_国别过滤_美系",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:55:23",
+                    "platform": "pc",
+                    "description": "列表页_国别过滤_法系",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-05 21:55:35",
+                    "platform": "pc",
+                    "description": "列表页_国别过滤_韩系",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-06 10:59:06",
+                    "carDescription": "本田_思铂睿_10.38万_10.90万公里_佛山市",
+                    "platform": "pc",
+                    "clueId": 21463284,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-07 15:21:01",
+                    "carDescription": "本田_思域_8.60万_3.60万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22472943,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-07 15:33:52",
+                    "platform": "pc",
+                    "description": "列表页_品牌过滤_福特",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-07 15:34:01",
+                    "carDescription": "福特_蒙迪欧_12.45万_4.92万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22517087,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-07 15:34:29",
+                    "carDescription": "福特_野马_32.00万_1.70万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 16140410,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-07 15:54:14",
+                    "carDescription": "本田_思域_9.00万_5.50万公里_北京市",
+                    "platform": "wap",
+                    "clueId": 22020017,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-07 16:05:13",
+                    "platform": "wap",
+                    "clueId": 22033839,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-07 16:10:19",
+                    "platform": "wap",
+                    "clueId": 22020017,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-07 16:10:22",
+                    "carDescription": "雪佛兰_迈锐宝_10.20万_2.09万公里_北京市",
+                    "platform": "wap",
+                    "clueId": 18976139,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-07 18:45:13",
+                    "carDescription": "Jeep_指南者_15.30万_4.30万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22338038,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-07 19:50:55",
+                    "platform": "pc",
+                    "clueId": 22033839,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 13:47:58",
+                    "carDescription": "别克_君越_13.30万_3.60万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22342325,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:09:28",
+                    "platform": "pc",
+                    "description": "列表页_品牌过滤_MINI",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:09:36",
+                    "platform": "pc",
+                    "clueId": 21615801,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:10:04",
+                    "carDescription": "MINI_MINI Paceman_20.00万_2.70万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 17292201,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:13:37",
+                    "carDescription": "MINI_MINI Clubman_16.80万_1.21万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22636215,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:13:51",
+                    "platform": "pc",
+                    "description": "列表页_品牌过滤_MINI",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:13:55",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI Paceman",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:13:59",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI Clubman",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:14:38",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI Countryman",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:15:02",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI Clubman",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:15:25",
+                    "carDescription": "MINI_MINI Clubman_26.50万_1.00万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 17944740,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:16:05",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI Countryman",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:16:27",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI Coupe",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:16:33",
+                    "carDescription": "MINI_MINI Coupe_25.00万_1.47万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22272879,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:16:40",
+                    "carDescription": "MINI_MINI Coupe_17.20万_2.39万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22335031,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:16:50",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI Cabrio-Coupe",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:16:53",
+                    "carDescription": "MINI_MINI Cabrio-Coupe_17.90万_6.50万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 9305100,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:17:08",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI JCW",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:17:12",
+                    "carDescription": "MINI_MINI JCW_25.00万_3.65万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 16837531,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:19:39",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_MINI",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:19:46",
+                    "carDescription": "MINI_MINI_14.00万_12.31万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22706325,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:20:12",
+                    "carDescription": "MINI_MINI_15.00万_3.80万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 20412529,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:20:48",
+                    "platform": "pc",
+                    "clueId": 21840047,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:20:57",
+                    "carDescription": "MINI_MINI_15.00万_0.65万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21941650,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:21:03",
+                    "carDescription": "MINI_MINI_22.90万_0.17万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22036948,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:21:15",
+                    "carDescription": "MINI_MINI_34.00万_0.20万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 17432357,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-08 15:21:26",
+                    "platform": "pc",
+                    "clueId": 14705763,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-09 11:26:03",
+                    "platform": "pc",
+                    "clueId": 22033839,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-09 13:52:19",
+                    "carDescription": "劳斯莱斯_幻影_780.00万_0.30万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22241324,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-09 13:54:46",
+                    "platform": "pc",
+                    "description": "列表页_国别过滤_德系",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-09 14:26:04",
+                    "platform": "pc",
+                    "description": "列表页_价格范围过滤_9.00-12.00万",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-09 14:26:15",
+                    "carDescription": "奥迪_奥迪A1_11.30万_4.31万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 20859667,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-09 14:26:26",
+                    "carDescription": "斯柯达_明锐_9.68万_2.04万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22475371,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-09 14:26:30",
+                    "carDescription": "斯柯达_明锐_10.50万_0.60万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 15972054,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-09 15:38:36",
+                    "platform": "pc",
+                    "description": "列表页_品牌过滤_大众",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-09 15:38:38",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_大众POLO",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-09 15:38:52",
+                    "carDescription": "大众_大众POLO_7.89万_2.56万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22600036,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-11 17:19:51",
+                    "carDescription": "MINI_MINI_17.50万_4.49万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 17823853,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-13 17:55:31",
+                    "carDescription": "斯柯达_明锐_8.80万_6.41万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 23093036,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-13 18:20:30",
+                    "platform": "pc",
+                    "clueId": 23093036,
+                    "description": "详情页_详情页行为_砍价",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-13 20:17:39",
+                    "carDescription": "奥迪_奥迪Q3_16.00万_4.44万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 18597326,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-13 20:18:09",
+                    "platform": "pc",
+                    "clueId": 18597326,
+                    "description": "详情页_详情页行为_查看贷款",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-13 20:18:34",
+                    "carDescription": "奥迪_奥迪Q3_18.30万_3.81万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 20105168,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-13 20:20:55",
+                    "carDescription": "荣威_荣威W5_6.50万_15.99万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22427667,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-13 20:21:04",
+                    "platform": "pc",
+                    "clueId": 22427667,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-13 20:21:16",
+                    "carDescription": "别克_君越_11.54万_6.66万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22540995,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-13 20:21:46",
+                    "platform": "pc",
+                    "clueId": 22427667,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-13 20:21:56",
+                    "carDescription": "大众_迈腾_13.40万_7.80万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22282972,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-14 16:57:34",
+                    "carDescription": "奥迪_奥迪A6L_11.80万_9.72万公里_北京市",
+                    "platform": "wap",
+                    "clueId": 22297495,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-14 16:57:41",
+                    "carDescription": "奥迪_奥迪A6L_15.00万_2.20万公里_北京市",
+                    "platform": "wap",
+                    "clueId": 21416970,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-14 20:30:07",
+                    "carDescription": "长安_逸动_4.50万_6.17万公里_枣庄市",
+                    "platform": "pc",
+                    "clueId": 22751213,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-15 11:56:49",
+                    "platform": "pc",
+                    "clueId": 22751213,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-16 15:19:52",
+                    "carDescription": "长安_逸动_4.50万_7.56万公里_枣庄市",
+                    "platform": "pc",
+                    "clueId": 22908473,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-20 17:31:07",
+                    "carDescription": "宝马_宝马3系_12.90万_9.70万公里_北京市",
+                    "platform": "app",
+                    "clueId": 23553886,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-20 17:31:36",
+                    "platform": "app",
+                    "clueId": 23553886,
+                    "description": "详情页_详情页行为_查看贷款",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-20 17:51:59",
+                    "carDescription": "长安_逸动_5.18万_2.20万公里_枣庄市",
+                    "platform": "pc",
+                    "clueId": 9940238,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-20 18:37:19",
+                    "platform": "app",
+                    "clueId": 23553886,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-21 15:47:50",
+                    "carDescription": "奔腾_奔腾B50_5.68万_3.40万公里_枣庄市",
+                    "platform": "pc",
+                    "clueId": 13970596,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-21 20:14:18",
+                    "carDescription": "林肯_林肯MKZ_23.00万_3.95万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 23279521,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-21 20:15:15",
+                    "carDescription": "奔驰_奔驰E级_38.00万_2.85万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 23052820,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-21 20:16:36",
+                    "carDescription": "别克_昂科拉_8.89万_6.64万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 23208435,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-21 20:17:06",
+                    "carDescription": "大众_高尔夫_13.00万_4.30万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 23618988,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 13:47:45",
+                    "carDescription": "大众_高尔夫_13.80万_1.70万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 23929628,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 13:49:19",
+                    "platform": "pc",
+                    "clueId": 17944740,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 13:50:36",
+                    "carDescription": "MINI_MINI Clubman_33.00万_0.30万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 16438094,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 13:51:28",
+                    "platform": "pc",
+                    "clueId": 14705763,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 13:52:08",
+                    "platform": "pc",
+                    "clueId": 17944740,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 13:52:26",
+                    "carDescription": "MINI_MINI Coupe_5.55万_10.86万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 23701541,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 13:52:38",
+                    "platform": "pc",
+                    "clueId": 23701541,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 13:53:01",
+                    "carDescription": "MINI_MINI_10.20万_4.79万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 19397761,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 13:53:08",
+                    "carDescription": "MINI_MINI_21.80万_2.68万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 21501852,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 13:53:15",
+                    "platform": "pc",
+                    "clueId": 18933428,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 13:53:48",
+                    "platform": "pc",
+                    "description": "列表页_新车品牌过滤_马自达",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 13:53:53",
+                    "platform": "pc",
+                    "description": "列表页_新车详情页_carid:179305",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 13:59:12",
+                    "carDescription": "大众_大众POLO_6.50万_0.78万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 23158251,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 14:00:47",
+                    "carDescription": "大众_大众POLO_7.50万_0.82万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 24255706,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 14:01:39",
+                    "carDescription": "大众_大众POLO_5.90万_0.65万公里_西安市",
+                    "platform": "pc",
+                    "clueId": 23184223,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 14:03:01",
+                    "carDescription": "大众_大众POLO_6.80万_1.20万公里_西安市",
+                    "platform": "pc",
+                    "clueId": 24042539,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 14:08:22",
+                    "platform": "pc",
+                    "description": "列表页_新车品牌过滤_MINI",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 14:08:23",
+                    "platform": "pc",
+                    "description": "列表页_新车详情页_carid:173434",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 14:15:34",
+                    "carDescription": "沃尔沃_沃尔沃V40_15.50万_5.60万公里_西安市",
+                    "platform": "pc",
+                    "clueId": 22744471,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 19:19:18",
+                    "platform": "pc",
+                    "description": "列表页_新车品牌过滤_别克",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 19:25:32",
+                    "platform": "pc",
+                    "description": "列表页_新车品牌过滤_日产",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 19:34:47",
+                    "platform": "pc",
+                    "description": "列表页_新车价格过滤_10万以下",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 19:35:19",
+                    "platform": "pc",
+                    "description": "列表页_新车首付过滤_1万以内",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 19:35:43",
+                    "platform": "pc",
+                    "description": "列表页_新车月供过滤_1000元以内",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-26 19:37:29",
+                    "platform": "pc",
+                    "description": "列表页_新车详情页_carid:180795",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-27 15:15:50",
+                    "carDescription": "本田_思域_15.30万_1.90万公里_西安市",
+                    "platform": "pc",
+                    "clueId": 21091792,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-29 11:46:48",
+                    "carDescription": "MINI_MINI Clubman_24.78万_1.26万公里_西安市",
+                    "platform": "pc",
+                    "clueId": 23362016,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2017-12-29 12:08:43",
+                    "carDescription": "MINI_MINI Clubman_17.00万_3.20万公里_西安市",
+                    "platform": "pc",
+                    "clueId": 16980010,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-02 17:26:14",
+                    "platform": "pc",
+                    "description": "首页_新车品牌过滤",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-02 17:26:19",
+                    "platform": "pc",
+                    "description": "列表页_新车品牌过滤_奥迪",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-02 17:26:32",
+                    "platform": "pc",
+                    "description": "列表页_新车详情页_carid:182170",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-02 17:26:53",
+                    "platform": "pc",
+                    "description": "列表页_新车详情页_carid:180807",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-02 17:47:45",
+                    "platform": "pc",
+                    "description": "列表页_新车品牌过滤_奥迪",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-02 17:47:50",
+                    "platform": "pc",
+                    "description": "列表页_新车详情页_carid:180807",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-02 18:01:52",
+                    "carDescription": "奥迪_奥迪A6_50.00万_2.06万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22532854,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-03 13:52:12",
+                    "platform": "pc",
+                    "description": "首页_新车品牌过滤",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-03 13:52:20",
+                    "platform": "pc",
+                    "description": "列表页_新车品牌过滤_马自达",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-03 13:52:27",
+                    "platform": "pc",
+                    "description": "列表页_新车详情页_carid:179305",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-03 13:52:46",
+                    "platform": "pc",
+                    "description": "列表页_新车品牌过滤_本田",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-03 13:52:56",
+                    "platform": "pc",
+                    "description": "列表页_新车详情页_carid:176531",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-03 13:53:10",
+                    "platform": "pc",
+                    "description": "列表页_新车详情页_carid:179057",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-03 13:53:45",
+                    "platform": "pc",
+                    "description": "列表页_新车详情页_carid:171957",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-03 13:54:01",
+                    "platform": "pc",
+                    "description": "列表页_新车详情页_carid:179052",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-03 14:28:48",
+                    "platform": "pc",
+                    "clueId": 20779169,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-03 15:42:13",
+                    "platform": "pc",
+                    "description": "列表页_车系过滤_本田CR-V",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-04 16:19:10",
+                    "carDescription": "别克_英朗_7.10万_5.70万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 23787487,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 11:15:48",
+                    "carDescription": "别克_英朗_7.00万_5.05万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 24931765,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 11:17:27",
+                    "carDescription": "凯迪拉克_凯迪拉克XTS_19.00万_7.50万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 23859553,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 11:19:29",
+                    "platform": "pc",
+                    "clueId": 23787487,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 15:02:48",
+                    "platform": "pc",
+                    "clueId": 23787487,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 15:35:32",
+                    "carDescription": "宝马_宝马1系_9.31万_4.01万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 24717651,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 15:37:39",
+                    "carDescription": "标致_标致408_9.58万_1.40万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 24902983,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 15:38:23",
+                    "carDescription": "现代_全新胜达_15.31万_5.60万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 24618480,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 15:39:38",
+                    "carDescription": "奔驰_奔驰GLK级_24.95万_4.40万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 24001336,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 15:43:20",
+                    "carDescription": "长安_逸动_5.44万_2.05万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 24987202,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 15:48:06",
+                    "carDescription": "铃木_吉姆尼_12.84万_2.07万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 24194395,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 15:50:30",
+                    "carDescription": "道奇_酷威_9.60万_10.00万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 23640408,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 18:15:20",
+                    "carDescription": "比亚迪_比亚迪S7_10.09万_2.71万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 22408406,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 18:15:48",
+                    "carDescription": "雪佛兰_科鲁兹_4.20万_9.60万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 23621991,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 23:15:28",
+                    "carDescription": "凯迪拉克_凯迪拉克XTS_24.00万_2.37万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 24966104,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-05 23:15:51",
+                    "platform": "pc",
+                    "clueId": 23787487,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-06 00:56:18",
+                    "platform": "pc",
+                    "clueId": 22036948,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-16 11:16:19",
+                    "carDescription": "别克_英朗_9.90万_0.80万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 25847825,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-16 11:16:23",
+                    "platform": "pc",
+                    "clueId": 25847825,
+                    "description": "详情页_详情页行为_查看贷款",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-16 16:44:01",
+                    "platform": "pc",
+                    "description": "列表页_新车详情页_carid:182497",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-16 18:29:34",
+                    "carDescription": "宝马_宝马3系_13.70万_7.55万公里_北京市",
+                    "platform": "wap",
+                    "clueId": 20297755,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-16 18:34:36",
+                    "carDescription": "大众_迈腾_12.80万_3.80万公里_北京市",
+                    "platform": "wap",
+                    "clueId": 25935804,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-16 18:36:43",
+                    "platform": "wap",
+                    "clueId": 25935804,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-17 18:52:37",
+                    "platform": "wap",
+                    "clueId": 20297755,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-29 15:06:44",
+                    "carDescription": "大众_迈腾_17.50万_2.50万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 10738625,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-30 14:42:01",
+                    "carDescription": "红旗_红旗H7_21.00万_0.90万公里_北京市",
+                    "platform": "app",
+                    "clueId": 27232485,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-30 15:53:28",
+                    "carDescription": "斯柯达_昊锐_8.30万_7.50万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 26812504,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-30 16:25:33",
+                    "carDescription": "MINI_MINI Countryman_33.50万_0.91万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 25334438,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-30 16:58:46",
+                    "platform": "线下",
+                    "clueId": 27232485,
+                    "description": "金融贷款线索",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-30 16:58:47",
+                    "platform": "线下",
+                    "clueId": 27232485,
+                    "description": "金融贷款订单",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-01-30 18:28:32",
+                    "platform": "线下",
+                    "clueId": 27232485,
+                    "description": "金融贷款进件",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-02-01 19:34:23",
+                    "carDescription": "宝马_宝马X5_34.50万_13.10万公里_北京市",
+                    "platform": "app",
+                    "clueId": 26684645,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-02-06 16:18:14",
+                    "carDescription": "奔驰_奔驰GLA级_22.02万_1.60万公里_北京市",
+                    "platform": "pc",
+                    "clueId": 24176025,
+                    "description": "详情页_详情页行为_查看详情页",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-02-06 17:05:35",
+                    "platform": "线下",
+                    "description": "成交概率得分",
+                    "actionType": 0
+                },
+                {
+                    "time": "2018-02-06 19:00:16",
+                    "platform": "线下",
+                    "description": "员工信息",
+                    "actionType": 0
+                }]
+            ]
+        }
+    }
+}

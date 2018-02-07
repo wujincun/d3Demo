@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<style>
+#carGraph {
+    display: flex;
+}
+
+#carGraph .graph {
+    flex: 1;
+}
+
+#carGraph .legend {
+    width: 30%;
+    flex: 0 0 30%
+}
+.red{
+    color: red
+}
+.green{
+    color: green
+}
+.gray{
+    color: #ccc
+}
+
+</style>
+
+<body>
+    <div id="carGraph">
+        <div class="graph"></div>
+        <div class="legend">
+            <p>圆圈越大表示成交概率越高</p>
+            <p>
+                <i class="fa fa-circle red"></i>
+                <span>表示A类已成交用户</span>
+            </p>
+            <p>
+                <i class="fa fa-circle green"></i>
+                <span>表示A类待成交用户</span>
+            </p>
+            <p>
+                <i class="fa fa-circle-o red"></i>
+                <span>表示B类已成交用户</span>
+            </p>
+            <p>
+                <i class="fa fa-circle-o green"></i>
+                <span>表示B类待成交用户</span>
+            </p>
+            <p>
+                <i class="fa fa-car red"></i>
+                <span>表示已售车辆</span>
+            </p>
+            <p>
+                <i class="fa fa-car green"></i>
+                <span>表示在售车辆</span>
+            </p>
+            <p>
+                <i class="fa fa-car"></i>
+                <span>表示停售车辆</span>
+            </p>
+            <p>
+                <i class="fa fa-circle gray"></i>
+                <span>表示不同关联原因</span>
+            </p>
+        </div>
+    </div>
+    <script src="/js/d3.min.js"></script>
+    <script>
+    var color = ['#4b8fc8','gray','green']
+    var width = 960,
+        height = 500,
+        root;
+
+
+    var force = d3.layout.force()
+        .linkDistance(80) //取得或者设置链接距离,默认为20
+        .charge(-500) //取得或者设置电荷强度,该参数决定是排斥还是吸引，数值越小越互相排斥
+        .gravity(.1) //取得或者设置重力强度,数值大小有什么用？？数值越大越向中心靠近
+        .size([width, height])
+        .on("tick", tick); //运行布局模拟的一步。
+
+    var svg = d3.select("#carGraph .graph").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    var link = svg.selectAll(".link"),
+        node = svg.selectAll(".node"),
+        label = svg.selectAll('.legend');
+
+    d3.json("data/forceTest.json", function(error, json) {
+        if (error) throw error;
+
+        root = json.data.carGraph;
+        update();
+    });
+
+    function update() {
+        var chargeData = flatten(root),
+            nodes = chargeData.nodes,
+            links = chargeData.links,
+            values = chargeData.values;
+
+        //比例尺    
+        var linear = d3.scale.linear()
+            .domain([d3.min(values), d3.max(values)])
+            .range([8, 20]);
+        // Restart the force layout.
+        force
+            .nodes(nodes) //取得或者设置布局的节点数组。 参数？？
+            .links(links) //取得或者设置节点间的链接数组。 参数？？？
+            .start(); //当节点变化时启动或者重启模拟。
+
+        // Update links.
+        link = link.data(links);
+
+        link.exit().remove();
+
+        //link.enter().insert("line", ".node") //插入path曲线 ？？？
+        link.enter().append('path') //插入path曲线
+            .attr("class", "link");
+
+        // Update nodes.
+        node = node.data(nodes, function(d) {
+            return d.index;
+        });
+
+        node.exit().remove();
+
+        var nodeEnter = node.enter().append("g")
+            .attr("class", "node")
+            .on("click", click)
+            .call(force.drag); //wu ??? force.drag  //给节点绑定拖动行为
+
+        //group指代层级 0：中心， 1：第一层（关联原因），2：第二层（最外层）
+        //中心车图形的样式
+        var carNode = nodeEnter.filter(function(d, i) {
+                return d.group === 0
+            })
+        carNode
+            .append('rect')
+            .attr('fill','#fff')
+            .style('width','46')
+            .style('height','40')
+            .attr("x", "-24")
+            .attr("y", "-22")
+        carNode
+            .append('text')
+            .attr('class','fa')
+            .attr('fill',function(d){
+                console.log(d)
+                if(d.status === 0){//在售
+                    return "green"
+                }else if(d.status === 3){ //停售
+                    return "red"
+                }else if(d.status === 1 || d.status === 2 || d.status === 5){//已定、已售、已定审核
+                    return "blue"
+                }
+            })
+            .text('\uf1b9')
+            .style('font-size','40px')
+            .style('background-color','#fff')
+            .attr("dx", "-.6em")
+            .attr("dy", ".3em")
+        //关联原因的样式
+        var linkReason = nodeEnter.filter(function(d, i) {
+            return d.group === 1
+        });
+        linkReason
+            .append('circle')
+            .attr('r', '20px')
+            .style('fill', '#ccc')
+            .attr('class', 'circle');
+        linkReason
+            .append("text")
+            .attr("dx", "-1em")
+            .attr("dy", ".35em")
+            .text(function(d) { return d.name; });
+        //末端的样式 都是圆形
+        //A类已成交    
+        nodeEnter.filter(function(d, i) {
+                return d.group === 2 && d.status === 1 && !d.isCarDealer
+            })
+            .append('circle')
+            .attr('r', function(d) {
+                //添加比例尺 ，车和关联原因 颜色，filter不同的类型添加不同颜色样式
+                return d.value && linear(d.value)
+            })
+            .attr('fill', '#ec3d25') //红色亮度低一点
+            .attr('stroke', 'red');
+        //A 类未成交      
+        nodeEnter.filter(function(d, i) {
+                return d.group === 2 && d.status === 2 && !d.isCarDealer
+            })
+            .append('circle')
+            .attr('r', function(d) {
+                //添加比例尺 ，车和关联原因 颜色，filter不同的类型添加不同颜色样式
+                return d.value && linear(d.value)
+            })
+            .attr('fill', 'green')
+            .attr('stroke', 'green');
+        
+        //B类已成交
+        nodeEnter.filter(function(d, i) {
+                return d.group === 2 && d.status === 1 && d.isCarDealer
+            })
+            .append('circle')
+            .attr('r', function(d) {
+                //添加比例尺 ，车和关联原因 颜色，filter不同的类型添加不同颜色样式
+                return d.value && linear(d.value)
+            })
+            .attr('fill', '#fff')
+            .attr('stroke', 'red');
+        //B类已成交
+        nodeEnter.filter(function(d, i) {
+                return d.group === 2 && d.status === 2 && d.isCarDealer
+            })
+            .append('circle')
+            .attr('r', function(d) {
+                //添加比例尺 ，车和关联原因 颜色，filter不同的类型添加不同颜色样式
+                return d.value && linear(d.value)
+            })
+            .attr('fill', '#fff')
+            .attr('stroke', 'green');
+    }
+
+    function tick() {
+        //在这里设置曲线的路径，在update的link那里设置 大小位置都出现错位
+        link.attr("d", function(d) { //设置线条的偏移以及路径
+            var dx = d.target.x - d.source.x,
+                dy = d.target.y - d.source.y,
+                dr = Math.sqrt(dx * dx + dy * dy);
+            // 下面表示位置的菜蔬中， M（表示画笔落下的位置）, A（画椭圆）是大写的，表示绝对位置。当使用相对位置时，要小写
+            return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,0 " + d.target.x + "," + d.target.y;
+        })
+        .attr("fill", "transparent")
+        .attr('stroke', function(d){
+            return color[d.source.group];
+        });//'#4b8fc8'
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    }
+
+
+    // Toggle children on click.
+    function click(d) {
+        if (d3.event.defaultPrevented) return; // ignore drag
+        if (d.children) {
+            d._children = d.children;
+            d.children = null;
+        } else {
+            d.children = d._children;
+            d._children = null;
+        }
+        update();
+    }
+
+    // Returns a list of all nodes under the root.
+
+    function flatten(root) { //处理数据
+        var nodes = [], //定点节点
+            links = [], //连线
+            values = [], //概率值，为了比例尺用
+            relationsObj = {}; //关联原因relationType去重用
+
+        var carNode = root.carNode,
+            userNodes = root.userNodes;
+
+        //关系图中心车节点
+        nodes.push({
+            name: '', //在图中显示的文字描述
+            group: 0, //分组，区分层级，
+            status: carNode['status'],
+            title: carNode['statusDesc'], //描述
+        });
+        //人节点信息
+        userNodes.forEach(function(userNode) {
+            if (!userNode.isFolded) { //节点是否隐藏
+                userNode['index'] = nodes.length; //给每个节点添加index
+                //添加正常节点
+                nodes.push({
+                    name: '',
+                    group: 2,
+                    status: userNode['status'],
+                    title: userNode['statusDesc'],
+                    value: userNode['dealProbability'], //value:概率
+                    isCarDealer: userNode['isCarDealer'] //是否车商
+                });
+                //概率值数组
+                values.push(userNode['dealProbability']);
+            }
+        })
+        //关联原因节点
+        userNodes.forEach(function(userNode) {
+            //添加关联原因节点
+            var relations = userNode.relations,
+                middleNode = {}; //画曲线中间节点
+            if (relations && relations.length > 0) {
+                relations.forEach(function(relation) {
+                    var relationType = relation.relationType,
+                        relationId = relationType.id,
+                        relationNode = relationsObj[relationId]; //判断有问题？？？
+                    if (!relationNode) {
+                        relationNode = {
+                            name: relationType['desc'], //页面图形上的文字
+                            group: 1, // 关联原因分组为20
+                            title: relationType['desc'], //描述
+                        };
+                        relationsObj[relationId] = relationNode;
+                        nodes.push(relationNode);
+                        //???links 数据处理
+                        links.push({
+                            source: carNode['status'],
+                            target: relationNode
+                        });
+                    }
+                    if (userNode['index']) {
+                        links.push({
+                            source: relationNode,
+                            target: userNode['index']
+                        });
+                    }
+                })
+            }
+        });
+
+        return {
+            nodes: nodes,
+            links: links,
+            values: values //概率值
+        }
+    }
+    </script>

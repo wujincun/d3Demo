@@ -1,0 +1,1075 @@
+{
+    "result": "success",
+    "data":
+    {
+        "carGraph":
+        {
+            "carNode":
+            {
+                "clueId": 19776520,
+                "puid": 3002745032,
+                "status": 0,
+                "statusDesc": "在售",
+                "isFolded": false
+            },
+            "userNodes": [
+            {
+                "type": "encrypt_phone",
+                "id": "v1gLCw9Ay9fm5COXxN6BUr/A\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 1,
+                        "desc": "砍价"
+                    },
+                    "relationId": 51388012,
+                    "timestamp": 1517540554000
+                },
+                {
+                    "relationType":
+                    {
+                        "id": 4,
+                        "desc": "工单"
+                    },
+                    "relationId": 13705244,
+                    "timestamp": 1517540863000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v10KCNuPuUJqidDhq9qvD9uA\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 4,
+                        "desc": "工单"
+                    },
+                    "relationId": 12980525,
+                    "timestamp": 1515676243000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1uPr73KzmuzfI9ScSYJO3Og\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 4,
+                        "desc": "工单"
+                    },
+                    "relationId": 12748094,
+                    "timestamp": 1515244859000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1127lfnWT77JQuWsQIjH55A\u003d\u003d",
+                "isCarDealer": true,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 4,
+                        "desc": "工单"
+                    },
+                    "relationId": 10997892,
+                    "timestamp": 1511861981000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1u/N+8Da9UMh5ivC7CIDxMw\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 1,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 7,
+                        "desc": "推荐"
+                    },
+                    "relationId": 0,
+                    "timestamp": 1517797415316
+                },{
+                    "relationType":
+                    {
+                        "id": 4,
+                        "desc": "工单"
+                    },
+                    "relationId": 137052400,
+                    "timestamp": 1517540863008
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1XkrOgL0a/PWbWncvT4NT2w\u003d\u003d",
+                "isCarDealer": true,
+                "dealProbability": 0.5,
+                "status": 1,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 3,
+                        "desc": "收藏"
+                    },
+                    "relationId": 3522775,
+                    "timestamp": 1515763668000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1342vSIGD1PLIdAg0m5rWSA\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 3,
+                        "desc": "收藏"
+                    },
+                    "relationId": 3377146,
+                    "timestamp": 1514422930000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1l4Uo5+9ltCYv9C6F2IgtEw\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 3,
+                        "desc": "收藏"
+                    },
+                    "relationId": 3062038,
+                    "timestamp": 1511579533000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v13Y25V0ns4RRtDtOfQ3a6YA\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 7,
+                        "desc": "推荐"
+                    },
+                    "relationId": 0,
+                    "timestamp": 1517797415316
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1tBD/q0FdDLlC5kE+hS92pQ\u003d\u003d",
+                "isCarDealer": true,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 1,
+                        "desc": "砍价"
+                    },
+                    "relationId": 51752236,
+                    "timestamp": 1517768005000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1j0kGCzSm6c4lMx6W4gFZYg\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 3,
+                        "desc": "收藏"
+                    },
+                    "relationId": 3246094,
+                    "timestamp": 1513153656000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1F/idXbFFu3gtUSI23+066w\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 7,
+                        "desc": "推荐"
+                    },
+                    "relationId": 0,
+                    "timestamp": 1517797415316
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1x5t+PTIln0efOj/nE3o/Aw\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 7,
+                        "desc": "推荐"
+                    },
+                    "relationId": 0,
+                    "timestamp": 1517797415316
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1v6VRO4MwSvnyqjeV9bvxTA\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 7,
+                        "desc": "推荐"
+                    },
+                    "relationId": 0,
+                    "timestamp": 1517797415316
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1N+kLl6RDom4dHvSGkM/l1Q\u003d\u003d",
+                "isCarDealer": true,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 1,
+                        "desc": "砍价"
+                    },
+                    "relationId": 46142990,
+                    "timestamp": 1514480758000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1SMk8D78gNxhu/bUcJ70WtQ\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 3,
+                        "desc": "收藏"
+                    },
+                    "relationId": 3664646,
+                    "timestamp": 1517148682000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v14Vw57ObwcEAOF7jio5wpZA\u003d\u003d",
+                "isCarDealer": true,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 1,
+                        "desc": "砍价"
+                    },
+                    "relationId": 42534971,
+                    "timestamp": 1512574431000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1BOYhFqof/lRr5vO+Zu9plg\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 1,
+                        "desc": "砍价"
+                    },
+                    "relationId": 43217451,
+                    "timestamp": 1512914806000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1rNPeMV76SsXw2fGbTWfDaQ\u003d\u003d",
+                "isCarDealer": true,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 7,
+                        "desc": "推荐"
+                    },
+                    "relationId": 0,
+                    "timestamp": 1517797415316
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1gbGYNhJU22wPmn+FcvYGbA\u003d\u003d",
+                "isCarDealer": true,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 4,
+                        "desc": "工单"
+                    },
+                    "relationId": 12272745,
+                    "timestamp": 1514300911000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1VNf0YNi2vTI9hT6QV3agDQ\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 3,
+                        "desc": "收藏"
+                    },
+                    "relationId": 3681320,
+                    "timestamp": 1517373101000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1rdHwX8LR0K5L5XSD+35WbA\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 3,
+                        "desc": "收藏"
+                    },
+                    "relationId": 3575817,
+                    "timestamp": 1516312150000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1gylg2hDi8PcWM0OWZBsbDg\u003d\u003d",
+                "isCarDealer": true,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 3,
+                        "desc": "收藏"
+                    },
+                    "relationId": 3131413,
+                    "timestamp": 1512224627000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v10rLD1rv0BwxAZLu4dpu0OA\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 4,
+                        "desc": "工单"
+                    },
+                    "relationId": 11439647,
+                    "timestamp": 1512718238000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1FMWbGE73Kn/mzkTBoNS8xA\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 4,
+                        "desc": "工单"
+                    },
+                    "relationId": 13572214,
+                    "timestamp": 1517119580000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1uYt0waYZf/PdBsSYkKFR4g\u003d\u003d",
+                "isCarDealer": true,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 4,
+                        "desc": "工单"
+                    },
+                    "relationId": 12599009,
+                    "timestamp": 1514969384000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1g0Z3YdEDQvXS1hAzGqEiOA\u003d\u003d",
+                "isCarDealer": true,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 7,
+                        "desc": "推荐"
+                    },
+                    "relationId": 0,
+                    "timestamp": 1517797415316
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1lNZkw8m8n9v5d4+7OIY2wA\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 4,
+                        "desc": "工单"
+                    },
+                    "relationId": 11464500,
+                    "timestamp": 1512784568000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1evEAwM0s1f57h4zuDZYS5A\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 1,
+                        "desc": "砍价"
+                    },
+                    "relationId": 48760096,
+                    "timestamp": 1515933646000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1AW+0jqUVy5pHtaacLPXKxQ\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 4,
+                        "desc": "工单"
+                    },
+                    "relationId": 12847032,
+                    "timestamp": 1515457135000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1Mvmak0xxmyYGJeERZMrwPA\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 7,
+                        "desc": "推荐"
+                    },
+                    "relationId": 0,
+                    "timestamp": 1517797415316
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v138vTCpaPec+NIV+ns+lZMQ\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 3,
+                        "desc": "收藏"
+                    },
+                    "relationId": 3078076,
+                    "timestamp": 1511719573000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1Etv5XEQ0H/wu6+yeB9kTAQ\u003d\u003d",
+                "isCarDealer": true,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 7,
+                        "desc": "推荐"
+                    },
+                    "relationId": 0,
+                    "timestamp": 1517797415316
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v17IFqAOladJBP0fwchMENnw\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 3,
+                        "desc": "收藏"
+                    },
+                    "relationId": 3436359,
+                    "timestamp": 1514986452000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v11iDxFbORO/gWuYhpRlAKuQ\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 1,
+                        "desc": "砍价"
+                    },
+                    "relationId": 44141702,
+                    "timestamp": 1513405809000
+                }],
+                "isFolded": false
+            },
+            {
+                "type": "encrypt_phone",
+                "id": "v1t5NK4MgLNFUBPpcgNQZLDg\u003d\u003d",
+                "isCarDealer": false,
+                "dealProbability": 0.5,
+                "status": 2,
+                "statusDesc": "未成交",
+                "relations": [
+                {
+                    "relationType":
+                    {
+                        "id": 7,
+                        "desc": "推荐"
+                    },
+                    "relationId": 0,
+                    "timestamp": 1517797415316
+                }],
+                "isFolded": false
+            }]
+        },
+        "carPrice":
+        {
+            "title": "估价信息: ",
+            "priceItems": [
+            {
+                "time": "2018-02-05",
+                "platform": "车300",
+                "dealerBuyPrice": "0.00万",
+                "dealerBuyPriceRange": "0.00万--0.00万",
+                "dealerSellPrice": "0.00万",
+                "dealerSellPriceRange": "0.00万--0.00万",
+                "individualPrice": "0.00万",
+                "individualPriceRange": "0.00万--0.00万"
+            }]
+        },
+        "carMaintenance":
+        {
+            "title": "维修保养信息: ",
+            "maintenanceItems": [
+            {
+                "time": "2017-08-24",
+                "mileage": "2.51万公里",
+                "maintenanceType": "定期保养",
+                "content": "项目：  20,000KM保养(M/T,RR D/C),检查֐¤;\r\n                                            材料：  ;全合成机油-5W/40(4L):4;机滤:1;密封垫片:2;空滤:2;\r\n                                                                                        备注： 保养非本系车+456实收2164;",
+                "source": "查博士"
+            },
+            {
+                "time": "2017-03-29",
+                "mileage": "2.39万公里",
+                "maintenanceType": "定期保养;一般:客户付款;",
+                "content": "项目：  40,000 KM保养,检查;空气滤清器滤芯,更换;更换空调滤芯+空调除菌;更换刹车油;清洗燃烧室;更换变速箱油;更换前刹车片;清洗喷油嘴;清洗节气门;发动机清洗+养护;清洗三元x;\r\n                                            材料：  ;密封垫片:1;自动变速箱油:2;活塞环释放剂:8;刹车油:4;燃油系统保护剂:1;燃油系统清洗剂:1;化清剂:1;三元催化保护剂:1;发动机超级保护剂:1;发动机润滑系统清洗剂:1;机滤:1;空调滤清器滤芯分总成:1;密封垫片:1;刹车片:1;\r\n                                                                                        备注： 金卡7折-792,非本息车+456,料费9折+376,实收5238;",
+                "source": "查博士"
+            }]
+        },
+        "carReport":
+        {
+            "title": "异常检测报告: ",
+            "reportItems": [
+            {
+                "item": "外观缺陷",
+                "content": "外观缺陷",
+                "reportResult": "划痕"
+            },
+            {
+                "item": "外观缺陷",
+                "content": "外观缺陷",
+                "reportResult": "划痕"
+            },
+            {
+                "item": "外观缺陷",
+                "content": "外观缺陷",
+                "reportResult": "划痕"
+            },
+            {
+                "item": "漆面检测",
+                "content": "左侧后门",
+                "reportResult": "喷漆"
+            }]
+        },
+        "baseInfo":
+        {
+            "title": "基本信息: ",
+            "labels": [
+            {
+                "label": "车源描述",
+                "value": "丰田坦途 无车辆类型描述 2014款 5.70L 国四"
+            },
+            {
+                "label": "车源号",
+                "value": "19776520"
+            },
+            {
+                "label": "所在城市",
+                "value": "北京市"
+            },
+            {
+                "label": "上牌城市",
+                "value": "北京市"
+            },
+            {
+                "label": "行驶里程",
+                "value": "5.00万公里"
+            },
+            {
+                "label": "上牌时间",
+                "value": "2014年12月"
+            },
+            {
+                "label": "变速箱",
+                "value": "自动"
+            },
+            {
+                "label": "过户次数",
+                "value": "1"
+            }]
+        },
+        "carState":
+        {
+            "title": "车源统计信息: ",
+            "states": [
+            {
+                "label": "车源状态",
+                "value": "在售"
+            },
+            {
+                "label": "过户次数",
+                "value": "1次"
+            },
+            {
+                "label": "进行中的工单数",
+                "value": "0个"
+            },
+            {
+                "label": "累计带看次数",
+                "value": "0次"
+            },
+            {
+                "label": "累计咨询数",
+                "value": "2次"
+            },
+            {
+                "label": "累计预约次数",
+                "value": "0次"
+            },
+            {
+                "label": "累计砍价次数",
+                "value": "7次"
+            },
+            {
+                "label": "线索个数",
+                "value": "81个"
+            },
+            {
+                "label": "列表页曝光量",
+                "value": "238074次"
+            },
+            {
+                "label": "列表页点击量",
+                "value": "19110次"
+            },
+            {
+                "label": "列表页曝光量(去重)",
+                "value": "247675次"
+            },
+            {
+                "label": "列表页点击量(去重)",
+                "value": "19106次"
+            },
+            {
+                "label": "是否独家车源",
+                "value": "否"
+            },
+            {
+                "label": "是否保卖车",
+                "value": "否"
+            }]
+        },
+        "carEvaluate":
+        {
+            "title": "车源评估信息: ",
+            "evaluations": [
+            {
+                "label": "车源评估结果",
+                "value": "经检测该车骨架完整，排除泡水火烧车，内饰正常使用磨损，外观有轻微划痕，此车为英里表，轻型货车强制报废日期2029年，出厂日期14年1月，上牌日期为14年12月，车辆有改装车主承诺过户前可恢复，内饰加装皮绒车门座椅。"
+            },
+            {
+                "label": "4S店维修保养次数",
+                "value": "2次"
+            },
+            {
+                "label": "当前车主报价",
+                "value": "36.00万"
+            },
+            {
+                "label": "最近看车地点",
+                "value": "北京市顺义区"
+            }]
+        },
+        "carEvent":
+        {
+            "title": "车源历史细查: ",
+            "keyPointEvents": [
+            {
+                "time": "2017-11-01 17:08:18",
+                "summary": "评估",
+                "description": "评估师 罗海瑞 ",
+                "eventResult": "建议价格 35.00万"
+            },
+            {
+                "time": "2017-11-01 17:09:30",
+                "summary": "上架",
+                "description": "c2c上架",
+                "eventResult": "报价41.00万"
+            },
+            {
+                "time": "2017-11-07 01:08:21",
+                "summary": "首个买家线索",
+                "description": "用户 10290025",
+                "encryptPhone": "v1Mq61T4v6LMLpsqu8jVQ2fQ\u003d\u003d"
+            },
+            {
+                "time": "2017-11-13 17:47:02",
+                "summary": "第1次改价",
+                "description": "41.00万\u003d\u003e40.50万",
+                "eventResult": "已通过"
+            },
+            {
+                "time": "2017-11-13 18:01:49",
+                "summary": "第2次改价",
+                "description": "40.50万\u003d\u003e39.80万",
+                "eventResult": "已通过"
+            },
+            {
+                "time": "2017-11-26 13:34:20",
+                "summary": "第3次改价",
+                "description": "39.80万\u003d\u003e38.80万",
+                "eventResult": "已通过"
+            },
+            {
+                "time": "2017-11-28 17:39:41",
+                "summary": "第1个工单",
+                "description": "用户 216741",
+                "eventResult": "待联系失败",
+                "encryptPhone": "v1127lfnWT77JQuWsQIjH55A\u003d\u003d"
+            },
+            {
+                "time": "2017-12-06 23:33:51",
+                "summary": "第1次砍价",
+                "description": "用户 12261268",
+                "eventResult": "买家出价36.00万",
+                "encryptPhone": "v14Vw57ObwcEAOF7jio5wpZA\u003d\u003d"
+            },
+            {
+                "time": "2017-12-08 15:30:38",
+                "summary": "第2个工单",
+                "description": "用户 136322",
+                "eventResult": "待联系失败",
+                "encryptPhone": "v10rLD1rv0BwxAZLu4dpu0OA\u003d\u003d"
+            },
+            {
+                "time": "2017-12-09 09:56:08",
+                "summary": "第3个工单",
+                "description": "用户 136322",
+                "eventResult": "待联系失败",
+                "encryptPhone": "v1lNZkw8m8n9v5d4+7OIY2wA\u003d\u003d"
+            },
+            {
+                "time": "2017-12-10 22:06:46",
+                "summary": "第2次砍价",
+                "description": "用户 16170953",
+                "eventResult": "买家出价35.00万",
+                "encryptPhone": "v1BOYhFqof/lRr5vO+Zu9plg\u003d\u003d"
+            },
+            {
+                "time": "2017-12-16 14:30:09",
+                "summary": "第3次砍价",
+                "description": "用户 5304028",
+                "eventResult": "买家出价35.00万",
+                "encryptPhone": "v11iDxFbORO/gWuYhpRlAKuQ\u003d\u003d"
+            },
+            {
+                "time": "2017-12-25 19:51:29",
+                "summary": "第4次改价",
+                "description": "38.80万\u003d\u003e37.80万",
+                "eventResult": "已通过"
+            },
+            {
+                "time": "2017-12-26 23:08:31",
+                "summary": "第4个工单",
+                "description": "用户 136322",
+                "eventResult": "待联系失败",
+                "encryptPhone": "v1gbGYNhJU22wPmn+FcvYGbA\u003d\u003d"
+            },
+            {
+                "time": "2017-12-29 01:05:58",
+                "summary": "第4次砍价",
+                "description": "用户 12084962",
+                "eventResult": "买家出价37.80万",
+                "encryptPhone": "v1N+kLl6RDom4dHvSGkM/l1Q\u003d\u003d"
+            },
+            {
+                "time": "2018-01-02 12:15:28",
+                "summary": "第5次改价",
+                "description": "37.80万\u003d\u003e36.80万",
+                "eventResult": "已通过"
+            },
+            {
+                "time": "2018-01-03 16:49:44",
+                "summary": "第5个工单",
+                "description": "用户 136322",
+                "eventResult": "待联系失败",
+                "encryptPhone": "v1uYt0waYZf/PdBsSYkKFR4g\u003d\u003d"
+            },
+            {
+                "time": "2018-01-06 21:20:59",
+                "summary": "第6个工单",
+                "description": "用户 136322",
+                "eventResult": "待联系失败",
+                "encryptPhone": "v1uPr73KzmuzfI9ScSYJO3Og\u003d\u003d"
+            },
+            {
+                "time": "2018-01-09 08:18:55",
+                "summary": "第7个工单",
+                "description": "用户 136322",
+                "eventResult": "待联系失败",
+                "encryptPhone": "v1AW+0jqUVy5pHtaacLPXKxQ\u003d\u003d"
+            },
+            {
+                "time": "2018-01-11 21:10:43",
+                "summary": "第8个工单",
+                "description": "用户 136322",
+                "eventResult": "待联系失败",
+                "encryptPhone": "v10KCNuPuUJqidDhq9qvD9uA\u003d\u003d"
+            },
+            {
+                "time": "2018-01-14 20:40:46",
+                "summary": "第5次砍价",
+                "description": "用户 23892599",
+                "eventResult": "买家出价34.92万",
+                "encryptPhone": "v1evEAwM0s1f57h4zuDZYS5A\u003d\u003d"
+            },
+            {
+                "time": "2018-01-24 13:44:30",
+                "summary": "第6次改价",
+                "description": "36.80万\u003d\u003e36.00万",
+                "eventResult": "已通过"
+            },
+            {
+                "time": "2018-01-28 14:06:20",
+                "summary": "第9个工单",
+                "description": "用户 216741",
+                "eventResult": "待看车失败",
+                "encryptPhone": "v1FMWbGE73Kn/mzkTBoNS8xA\u003d\u003d"
+            },
+            {
+                "time": "2018-02-02 11:02:34",
+                "summary": "第6次砍价",
+                "description": "用户 27723312",
+                "eventResult": "买家出价33.00万",
+                "encryptPhone": "v1gLCw9Ay9fm5COXxN6BUr/A\u003d\u003d"
+            },
+            {
+                "time": "2018-02-02 11:07:43",
+                "summary": "第10个工单",
+                "description": "用户 216741",
+                "eventResult": "待联系失败",
+                "encryptPhone": "v1gLCw9Ay9fm5COXxN6BUr/A\u003d\u003d"
+            },
+            {
+                "time": "2018-02-05 02:13:25",
+                "summary": "第7次砍价",
+                "description": "用户 435784",
+                "eventResult": "买家出价33.80万",
+                "encryptPhone": "v1tBD/q0FdDLlC5kE+hS92pQ\u003d\u003d"
+            }]
+        }
+    }
+}
