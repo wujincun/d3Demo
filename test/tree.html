@@ -22,7 +22,6 @@
     }
     </style>
     <script src="js/d3.min.js"></script>
-    
 </head>
 
 <body>
@@ -60,7 +59,8 @@
                 .enter()
                 .append("path")
                 .attr("class", "link")
-                .attr("d", diagonal);
+                .attr("d", diagonal),
+                .attr('stroke', 'red');
 
             //绘制节点  
             var node = svg.selectAll(".node")
@@ -69,6 +69,7 @@
                 .append("g")
                 .attr("class", "node")
                 .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+                
 
             //添加节点图标  
             node.append("circle")
