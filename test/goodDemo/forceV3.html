@@ -112,7 +112,6 @@
             .nodes(nodes) //取得或者设置布局的节点数组。 参数？？
             .links(links) //取得或者设置节点间的链接数组。 参数？？？
             .start(); //当节点变化时启动或者重启模拟。
-        console.log(links)
         // Update links.
         link = link.data(links);
         console.log(link)
@@ -304,7 +303,6 @@
         userNodes.forEach(function(userNode) {
             //添加关联原因节点
             var relations = userNode.relations,
-                middleNode = {}; //画曲线中间节点
             if (relations && relations.length > 0) {
                 relations.forEach(function(relation) {
                     var relationType = relation.relationType,

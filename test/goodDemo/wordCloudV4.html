@@ -54,7 +54,7 @@
             .style("fill", function(d, i) { return fill(i); })//fill 在前面15行定义为颜色集
             .attr("text-anchor", "middle")
             .attr("transform", function(d) {
-                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+con                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
             })
             .text(function(d) { return d.text; });
 
