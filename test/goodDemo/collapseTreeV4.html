@@ -4,26 +4,24 @@
 .node {
     cursor: pointer;
 }
-.node:hover text{
-  font-size: 12px;
+
+.node:hover text {
+    font-size: 12px;
 }
-.node:hover circle{
-  r:.5rem;
-}
-.node circle {
-    fill: #fff;
-    stroke: steelblue;
-    stroke-width: 1.5px;
+
+.node:hover circle {
+    r: .5rem;
 }
 
 .node text {
     font: 10px sans-serif;
 }
-.vz-weighted_tree-tip{
-  border: 1px solid #000;
-  padding: 5px;
-  border-radius: 5px;
-  background-color: lightsteelblue;
+
+.vz-weighted_tree-tip {
+    border: 1px solid #000;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: lightsteelblue;
 }
 
 .link {
@@ -34,7 +32,7 @@
 </style>
 
 <body>
-    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="/js/d3.v4.min.js"></script>
     <script>
     var margin = { top: 20, right: 120, bottom: 20, left: 120 },
         width = 960 - margin.right - margin.left,
@@ -43,12 +41,27 @@
     var i = 0,
         duration = 750,
         root;
-
-    var tree = d3.layout.tree()
+    //布局
+    var tree = d3.tree()
         .size([height, width]);
 
-    var diagonal = d3.svg.diagonal() //新建一个对角线生成器 v4里没有了
-        .projection(function(d) { return [d.y, d.x]; }); //设置或获取一个可选的点转换
+
+    // 在版本4中生成器自己模拟
+    function lineLink(d) {
+        return "M" + d.source.y + "," + d.source.x +
+            "C" + (d.source.y + d.target.y) / 2 + "," + d.source.x +
+            " " + (d.source.y + d.target.y) / 2 + "," + d.target.x +
+            " " + d.target.y + "," + d.target.x;
+    }
+
+    // 在版本4.9.0中有添加了d3.linkHorizontal() d3.linkVertical() d3.linkRadial()三个方法来生成线
+    // .attr("d", d3.linkHorizontal()
+    // .x(function(d) { return d.y; })
+    // .y(function(d) { return d.x; }));
+
+    //版本3中生成器
+    // var diagonal = d3.svg.diagonal() //新建一个对角线生成器 v4里没有了
+    //     .projection(function(d) { return [d.y, d.x]; }); //设置或获取一个可选的点转换
 
     var svg = d3.select("body").append("svg")
         .attr("width", width + margin.right + margin.left)
@@ -56,14 +69,22 @@
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    d3.json("data/tree.json", function(error, flare) {
+    d3.json("/data/tree.json", function(error, flare) {
         if (error) throw error;
 
-        root = flare.data;
+        root = d3.hierarchy(flare.data); //V4要求层次化输入数据规整后必须以d3.hierarchy对象的形式存,在一个d3.hierarchy object 是一种可以表达层次关系的数据结构。对象本身可以通过d3.hierarchy(data)来生成
+        //root = flare.data;
         root.x0 = height / 2;
         root.y0 = 0;
 
         function collapse(d) {
+            //怎么减少循环？？
+            if (d.flag && d.children) {
+                d.children.forEach(function(item) {
+                    item.flag = 1
+                })
+            }
+            //
             if (d.children) {
                 d._children = d.children;
                 d._children.forEach(collapse);
@@ -75,16 +96,19 @@
         update(root);
     });
 
-    d3.select(self.frameElement).style("height", "800px");
+    //d3.select(self.frameElement).style("height", "800px"); //???似乎没用 self.frameElement为null
 
     function update(source) {
 
         // Compute the new tree layout.
-        var nodes = tree.nodes(root).reverse(), //计算父布局并返回一组节点。//为什么reverse？？
-            links = tree.links(nodes); // 计算树节点的父-子连接
 
-        // Normalize for fixed-depth.
-        nodes.forEach(function(d) { d.y = d.depth * 180; }); //每个节点的位置，每层多180，为什么是d.y，不是d.x?? wu
+        tree(root); //这个函数执行的结果是会将root的每一个node都增加上x和y的value,reverse??
+
+        var nodes = root.descendants(),
+            links = root.links();
+        //root.descendants() 返回一个扁平的数组来表达root的子孙后代，而root.links()则返回一个扁平的对象数组来表达所有的父子links
+        nodes.forEach(function(d) { d.y = d.depth * 180; });
+        //每个节点的位置，每层多180，为什么是d.y，不是d.x?? wu
 
         // Update the nodes…
         var node = svg.selectAll("g.node") //为了能够区分节点是新加入的还是冗余的，我们为节点数据集指定id属性，然后我们就可以通过这个属性，使用.exit()来获取冗余节点
@@ -105,27 +129,40 @@
 
         nodeEnter.append("circle")
             .attr("r", 1e-6)
-            .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+            .style("fill", function(d) {
+                //return (d.flag && d._children) ? "red" :'green'
+                return d._children ? "lightsteelblue" : "#fff";
+            })
+            .style("stroke", function(d) {
+                return d.flag ? "red" : 'green'
+            })
+            .style("stroke-width", "1.5px");
 
         nodeEnter.append("text") //text都有哪些属性，wu 这是svg里的元素
             .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
             .attr("dy", ".35em") //dy值表示的是相对于前一个字符的长度,不是相对于整个视窗的绝对定位。
             .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-            .text(function(d) { return d.name; })
+            .text(function(d) { return d.data.name; })
             .style("fill-opacity", 1e-6);
 
         // Transition nodes to their new position.
-        var nodeUpdate = node.transition() // wu nodeUpdate修改节点？？怎么知道这是修改的节点
+        var nodeUpdate = d3.transition() // wu 这是node种没有变动的节点
+            .selectAll("g.node")
             .duration(duration)
             .attr("transform", function(d) {
-                console.log('nodeUpdate:' + d)
-                console.log(d)
                 return "translate(" + d.y + "," + d.x + ")";
             }); //先y，后x？？
 
         nodeUpdate.select("circle")
             .attr("r", 4.5)
-            .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+            .style("fill", function(d) {
+                //return (d.flag && d._children) ? "red" :'green'
+                return d._children ? "lightsteelblue" : "#fff";
+            })
+            .style("stroke", function(d) {
+                return d.flag ? "red" : 'green'
+            })
+            .style("stroke-width", "1.5px");
 
 
         nodeUpdate.select("text")
@@ -150,22 +187,36 @@
         // Enter any new links at the parent's previous position.
         link.enter().insert("path", "g") //insert 在g元素之前插入path元素，但是g元素怎么选择的，为什么不是在外层的g元素？？？
             .attr("class", "link")
+            // .attr("d", function(d) {
+            //     var o = { x: source.x0, y: source.y0 };
+
+            //     return diagonal({ source: o, target: o }); //???d是什么属性？source target？？wu
+            // });
             .attr("d", function(d) {
-                var o = { x: source.x0, y: source.y0 };
-                return diagonal({ source: o, target: o }); //???d是什么属性？source target？？wu
+                return "M" + d.source.y + "," + d.source.x +
+                    "C" + (d.source.y + d.target.y) / 2 + "," + d.source.x +
+                    " " + (d.source.y + d.target.y) / 2 + "," + d.target.x +
+                    " " + d.target.y + "," + d.target.x;
             });
 
         // Transition links to their new position.
         link.transition()
             .duration(duration)
-            .attr("d", diagonal);
+            .attr("d",  function(d) {
+                return "M" + d.source.y + "," + d.source.x +
+                    "C" + (d.source.y + d.target.y) / 2 + "," + d.source.x +
+                    " " + (d.source.y + d.target.y) / 2 + "," + d.target.x +
+                    " " + d.target.y + "," + d.target.x;
+            });
 
         // Transition exiting nodes to the parent's new position.
         link.exit().transition()
             .duration(duration)
-            .attr("d", function(d) {
-                var o = { x: source.x, y: source.y };
-                return diagonal({ source: o, target: o });
+            .attr("d",  function(d) {
+                return "M" + d.source.y + "," + d.source.x +
+                    "C" + (d.source.y + d.target.y) / 2 + "," + d.source.x +
+                    " " + (d.source.y + d.target.y) / 2 + "," + d.target.x +
+                    " " + d.target.y + "," + d.target.x;
             })
             .remove();
 
@@ -192,15 +243,15 @@
         //node只是一个对象，怎么和d3节点以及link线联系起来？？wu
 
         var html = `<div>
-        ${node.description}
+        ${node.data.description}
         </div>`
 
         d3.select("body")
             .append("div")
             .attr("class", "vz-weighted_tree-tip")
             .style("position", "absolute")
-            .style("top", (node.x-20) + "px")
-            .style("left", (node.y+100) + "px")
+            .style("top", (node.x - 20) + "px")
+            .style("left", (node.y + 100) + "px")
             .style("opacity", 0)
             .html(html)
             .transition().style("opacity", 1);
@@ -209,5 +260,4 @@
     function mouseout() {
         d3.selectAll(".vz-weighted_tree-tip").remove();
     }
-
     </script>
