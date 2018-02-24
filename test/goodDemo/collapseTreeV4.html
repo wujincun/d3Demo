@@ -193,30 +193,21 @@
             //     return diagonal({ source: o, target: o }); //???d是什么属性？source target？？wu
             // });
             .attr("d", function(d) {
-                return "M" + d.source.y + "," + d.source.x +
-                    "C" + (d.source.y + d.target.y) / 2 + "," + d.source.x +
-                    " " + (d.source.y + d.target.y) / 2 + "," + d.target.x +
-                    " " + d.target.y + "," + d.target.x;
+                var o = { x: source.x0, y: source.y0 };
+                return lineLink({ source: o, target: o });
             });
 
         // Transition links to their new position.
         link.transition()
             .duration(duration)
-            .attr("d",  function(d) {
-                return "M" + d.source.y + "," + d.source.x +
-                    "C" + (d.source.y + d.target.y) / 2 + "," + d.source.x +
-                    " " + (d.source.y + d.target.y) / 2 + "," + d.target.x +
-                    " " + d.target.y + "," + d.target.x;
-            });
+            .attr("d", lineLink);
 
         // Transition exiting nodes to the parent's new position.
         link.exit().transition()
             .duration(duration)
-            .attr("d",  function(d) {
-                return "M" + d.source.y + "," + d.source.x +
-                    "C" + (d.source.y + d.target.y) / 2 + "," + d.source.x +
-                    " " + (d.source.y + d.target.y) / 2 + "," + d.target.x +
-                    " " + d.target.y + "," + d.target.x;
+            .attr("d", function(d) {
+                var o = { x: source.x, y: source.y };
+                return lineLink({ source: o, target: o })
             })
             .remove();
 
