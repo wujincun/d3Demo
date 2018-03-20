@@ -29,7 +29,7 @@
 </style>
 
 <body>
-    <div id="carGraph">
+    <div id="carGraphWrap">
         <div class="graph"></div>
         <div class="legend">
             <p>圆圈越大表示成交概率越高</p>
@@ -69,68 +69,65 @@
     </div>
     <script src="/js/d3.v4.min.js"></script>
     <script>
-    var color = ['#4b8fc8', 'gray', 'green']
-    var width = 960,
-        height = 500,
-        root;
-
-    var simulation = d3.forceSimulation()
-        .alphaDecay(0.1) // 设置alpha衰减系数 数值越大衰减越快
-        .force("link", d3.forceLink().distance(30).id(function(d) { return d.index; })) //???新的link force代替force.linkStrength并且更稳定 //distance为连线的距离设置
-        //新的many-body force代替原有的force.charge并且支持最小距离参数
-        .force("charge", d3.forceManyBody().strength(-100))  // 节点间的作用力
-        .force('collide', d3.forceCollide().radius(() => 10)) // collide 为节点指定一个radius区域来防止节点重叠。
-        .force("center", d3.forceCenter(width / 2, height / 2));
-
-    // var force = d3.layout.force()
-    //     .linkDistance(80) //取得或者设置链接距离,默认为20
-    //     .charge(-500) //取得或者设置电荷强度,该参数决定是排斥还是吸引，数值越小越互相排斥
-    //     .gravity(.1) //取得或者设置重力强度,数值大小有什么用？？数值越大越向中心靠近
-    //     .size([width, height])
-    //     .on("tick", tick); //运行布局模拟的一步。
-
-    var svg = d3.select("#carGraph .graph").append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-    var link = svg.selectAll(".link"),
-        node = svg.selectAll(".node");
-
     d3.json("/data/forceTest.json", function(error, json) {
         if (error) throw error;
 
         root = json.data.carGraph;
-        update();
+        drawGraph(root);
     });
 
-    function update() {
-        var chargeData = flatten(root),
-            nodes = chargeData.nodes,
-            links = chargeData.links,
-            values = chargeData.values;
+    function drawGraph(root) {
+        var color = ['#4b8fc8', 'gray', 'green'];
+        var width = document.body.clientWidth * .8,
+            height = 600;
+        //画布
+        var carGraphWrap = d3.select("#carGraphWrap .graph")
+        carGraphWrap.selectAll("svg").remove();
+        var svg = carGraphWrap.append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        console.log(d3.select("#carGraphWrap .graph svg"))
+
+        //数据
+        var carGraphData = flatten(root);
+        var nodes = carGraphData.nodes,
+            links = carGraphData.links,
+            values = carGraphData.values;
 
         //比例尺    
         var linear = d3.scaleLinear()
             .domain([d3.min(values), d3.max(values)])
             .range([8, 20]);
-//由于在v4版本中nodes的x、y坐标和加速度vx、vy只在nodes中计算一次，所有在变成有节点或连线增加的时候，必须重新执行一次force.nodes(nodes)和force('link', d3.forceLink(links))，初始化节点的数据结构。如果在v3版本中，只需在布局初始化时执行即可，在d3会在每次force.start()方法执行时重新初始化一次节点和连线的数据结构，这是一个特别需要注意的地方，另外在v4版本中start方法被遗弃，需使用restart方法。
+        //画图
+        var simulation = d3.forceSimulation()
+            .alphaDecay(0.1) // 设置alpha衰减系数 数值越大衰减越快
+            .force("link", d3.forceLink().id(function(d) { return d.index; })) //???新的link force代替force.linkStrength并且更稳定 //distance为连线的距离设置
+            //新的many-body force代替原有的force.charge并且支持最小距离参数
+            .force("charge", d3.forceManyBody().strength(-60)) // 节点间的作用力
+            .force('collide', d3.forceCollide().radius(() => 18)) // collide 为节点指定一个radius区域来防止节点重叠。
+            .force("center", d3.forceCenter(width / 2, height / 2));
+
         simulation
             .nodes(nodes)
             .on("tick", ticked)
-            .force('link', d3.forceLink(links).distance(50))
-            //.alpha(1)  // 设置alpha值，让里导向图有初始动力
+            .force('link', d3.forceLink(links).distance(60))
             .restart();
-            //.links(links);
 
-        link = link
+        var link = svg.append("g")
+            .attr("class", "links")
+            .selectAll('.link')
             .data(links)
             .enter()
             .append("path")
             .attr("class", "link");
 
-        node = node.data(nodes)
+        var node = svg.append('g')
+            .attr('class', 'nodes')
+            .selectAll('.node')
+            .data(nodes, function(d) { return d.index })
             .enter()
-            .append("g")
+            .append('g')
             .attr('class', 'node')
             .call(
                 d3.drag()
@@ -141,7 +138,6 @@
 
         //group指代层级 0：中心， 1：第一层（关联原因），2：第二层（最外层）
         //中心车图形的样式
-
         var carNode = node.filter(function(d, i) {
             return d.group === 0
         })
@@ -159,9 +155,9 @@
                 if (d.status === 0) { //在售
                     return "green"
                 } else if (d.status === 3) { //停售
-                    return "red"
+                    return "black"
                 } else if (d.status === 1 || d.status === 2 || d.status === 5) { //已定、已售、已定审核
-                    return "blue"
+                    return "red"
                 }
             })
             .text('\uf1b9')
@@ -191,7 +187,7 @@
             .append('circle')
             .attr('r', function(d) {
                 //添加比例尺 ，车和关联原因 颜色，filter不同的类型添加不同颜色样式
-                return d.value && linear(d.value)
+                return linear(d.value)
             })
             .attr('fill', '#ec3d25') //红色亮度低一点
             .attr('stroke', 'red');
@@ -202,7 +198,7 @@
             .append('circle')
             .attr('r', function(d) {
                 //添加比例尺 ，车和关联原因 颜色，filter不同的类型添加不同颜色样式
-                return d.value && linear(d.value)
+                return linear(d.value)
             })
             .attr('fill', 'green')
             .attr('stroke', 'green');
@@ -214,49 +210,46 @@
             .append('circle')
             .attr('r', function(d) {
                 //添加比例尺 ，车和关联原因 颜色，filter不同的类型添加不同颜色样式
-                return d.value && linear(d.value)
+                return linear(d.value)
             })
             .attr('fill', '#fff')
             .attr('stroke', 'red');
-        //B类已成交
+        //B类待成交
         node.filter(function(d, i) {
                 return d.group === 2 && d.status === 2 && d.isCarDealer
             })
             .append('circle')
             .attr('r', function(d) {
                 //添加比例尺 ，车和关联原因 颜色，filter不同的类型添加不同颜色样式
-                return d.value && linear(d.value)
+                return linear(d.value)
             })
             .attr('fill', '#fff')
             .attr('stroke', 'green');
-    }
 
-    //在计时器的每一帧中，仿真的alpha系数会不断削减，可通过force.alpha()来获取和设置alpha系数，削减速度由alphaDecay来决定，默认值为0.0228…，衰减系数可通过force.alphaDecay()来获取和设置，当alpha到达一个系数时，仿真将会停止，也就是alpha的目标系数alphaTarget，该值区间为[0,1]. 默认为0，可通过force.alphaTarget()来获取和设置，另外还有一个速度衰减系统velocityDecay ，相当于摩擦力。区间为[0,1], 默认为0.4。在每次tick之后，节点的速度都会等于当前速度乘以1-velocityDecay，和alpha衰减类似，速度衰减越慢最终的效果越好，但是如果速度衰减过慢，可能会导致震荡。以上为tick过程的发生。需要注意的是，在v4版本中，tick事件的callback中不带任何参数，在v3版本的'tick'事件中，我们可通过callback(e)中的e.alpha来获取alpha值，而在v4版本中，alpha值只能通过force.alpha()来获取。
-    function ticked() {
-        
-        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-        //在这里设置曲线的路径，在update的link那里设置 大小位置都出现错位
-        link.attr("d", function(d) { //设置线条的偏移以及路径
-                var dx = d.target.x - d.source.x,
-                    dy = d.target.y - d.source.y,
-                    dr = Math.sqrt(dx * dx + dy * dy);
-                // 下面表示位置的菜蔬中， M（表示画笔落下的位置）, A（画椭圆）是大写的，表示绝对位置。当使用相对位置时，要小写
-                return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,0 " + d.target.x + "," + d.target.y;
-            })
-            .attr("fill", "transparent")
-            .attr('stroke', function(d) {
-                return color[d.source.group];
-            }); //'#4b8fc8'
-        link.attr("x1", function(d) { return d.source.x; })
-            .attr("y1", function(d) { return d.source.y; })
-            .attr("x2", function(d) { return d.target.x; })
-            .attr("y2", function(d) { return d.target.y; });
+        function ticked() {
+            //在这里设置曲线的路径，在update的link那里设置 大小位置都出现错位
+            link.attr("d", function(d) { //设置线条的偏移以及路径
+                    var dx = d.target.x - d.source.x,
+                        dy = d.target.y - d.source.y,
+                        dr = Math.sqrt(dx * dx + dy * dy);
+                    // 下面表示位置的菜蔬中， M（表示画笔落下的位置）, A（画椭圆）是大写的，表示绝对位置。当使用相对位置时，要小写
+                    return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,0 " + d.target.x + "," + d.target.y;
+                })
+                .attr("fill", "transparent")
+                .attr('stroke', function(d) {
+                    return color[d.source.group];
+                }); //'#4b8fc8'
+            link.attr("x1", function(d) { return d.source.x; })
+                .attr("y1", function(d) { return d.source.y; })
+                .attr("x2", function(d) { return d.target.x; })
+                .attr("y2", function(d) { return d.target.y; });
 
-    }
-//force布局不再依赖拖拽行为，因为你可以直接创建一个可拖动的力导向布局。设置node.fx和node.fy来修正节点的位置。
+            node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+        }
+
         function dragstarted(d) {
-            if (!d3.event.active) simulation.alphaTarget(0.3).restart();//????新的simulation.alphaTarget方法允许设置期望的仿真"温度"(什么时候停下来)
-           // 当前alpha值为0，需设置alphaTarget让节点动起来
+            if (!d3.event.active) simulation.alphaTarget(0.3).restart(); //????新的simulation.alphaTarget方法允许设置期望的仿真"温度"(什么时候停下来)
+            // 当前alpha值为0，需设置alphaTarget让节点动起来
             d.fx = d.x;
             d.fy = d.y;
         }
@@ -267,10 +260,11 @@
         }
 
         function dragended(d) {
-            if (!d3.event.active) simulation.alphaTarget(0);// 让alpha目标值值恢复为默认值0
+            if (!d3.event.active) simulation.alphaTarget(0); // 让alpha目标值值恢复为默认值0
             d.fx = null;
             d.fy = null;
         }
+    }
 
     // Returns a list of all nodes under the root.
 
@@ -327,7 +321,7 @@
                         nodes.push(relationNode);
                         //???links 数据处理
                         links.push({
-                            source: carNode['status'],
+                            source: 0,
                             target: relationNode
                         });
                     }

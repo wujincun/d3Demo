@@ -18,7 +18,7 @@
     //加比例尺 end
     var fill = d3.scaleOrdinal(d3.schemeCategory20);
 
-    
+    console.log(d3)
     d3.layout.cloud().size([400, 500]) //size([x,y])  词云显示的大小
     //map 返回新的object数组
         .words([".NET", "Silverlight", "jQuery", "CSS3", "HTML5", "JavaScript", "SQL","C#","aaa","bbb"].map(function(d,i) {
@@ -54,7 +54,7 @@
             .style("fill", function(d, i) { return fill(i); })//fill 在前面15行定义为颜色集
             .attr("text-anchor", "middle")
             .attr("transform", function(d) {
-con                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
             })
             .text(function(d) { return d.text; });
 

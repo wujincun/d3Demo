@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
 .node {
     cursor: pointer;
 }
@@ -29,9 +34,59 @@
     stroke: #ccc;
     stroke-width: 1.5px;
 }
+
+svg {
+    margin-right: 320px;
+}
+
+#selectArea {
+    position: fixed;
+    right: 50px;
+    top: 100px;
+    width: 300px;
+    height: 400px;
+    border: 1px solid #ccc;
+    z-index: 100;
+    background-color: #fff;
+}
+.btnWrap{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    color: #fff;
+}
+.delBtn,.sureBtn{
+    flex: 1;
+    text-align: center;
+    line-height: 40px;
+    background-color: #008000ba
+}
+.delBtn{
+    border-right: 1px solid #ccc;
+    background-color: #ff6a00
+}
+.list{
+}
+.list li{
+    line-height: 40px;
+    padding: 0 10px;
+    border-bottom:1px solid #fff;
+}
+.list .active{
+    background-color: #ccc;
+}
 </style>
 
 <body>
+    <div id="selectArea">
+        <ul class="list"></ul>
+        <div class="btnWrap">
+            <div class="delBtn">删除</div>
+            <div class="sureBtn">确定</div>
+        </div>
+    </div>
     <script src="/js/d3.v4.min.js"></script>
     <script>
     var margin = { top: 20, right: 120, bottom: 20, left: 120 },
@@ -46,7 +101,7 @@
         .size([height, width]);
 
 
-    // 在版本4中生成器自己模拟
+    // 在版本4中生成器自己模拟  有问题
     function lineLink(d) {
         return "M" + d.source.y + "," + d.source.x +
             "C" + (d.source.y + d.target.y) / 2 + "," + d.source.x +
@@ -67,24 +122,19 @@
         .attr("width", width + margin.right + margin.left)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
+        //.attr('margin-right','320px')
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     d3.json("/data/tree.json", function(error, flare) {
         if (error) throw error;
 
-        root = d3.hierarchy(flare.data); //V4要求层次化输入数据规整后必须以d3.hierarchy对象的形式存,在一个d3.hierarchy object 是一种可以表达层次关系的数据结构。对象本身可以通过d3.hierarchy(data)来生成
+        root = d3.hierarchy(flare.data); //分层数据结构中构造root节点(根节点)...4.0中层次布局使用root节点而非直接使用JSON数据可以在输入数据和布局之间很容易的进行区分。
+
         //root = flare.data;
         root.x0 = height / 2;
         root.y0 = 0;
 
         function collapse(d) {
-            //怎么减少循环？？
-            if (d.flag && d.children) {
-                d.children.forEach(function(item) {
-                    item.flag = 1
-                })
-            }
-            //
             if (d.children) {
                 d._children = d.children;
                 d._children.forEach(collapse);
@@ -125,7 +175,8 @@
             .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
             .on("click", click)
             .on("mouseover", mouseover) //wu
-            .on("mouseout", mouseout); //wu
+            .on("mouseout", mouseout) //wu
+            .on('mousedown', mousedown)
 
         nodeEnter.append("circle")
             .attr("r", 1e-6)
@@ -134,7 +185,7 @@
                 return d._children ? "lightsteelblue" : "#fff";
             })
             .style("stroke", function(d) {
-                return d.flag ? "red" : 'green'
+                return d.data.flag ? "red" : 'green'
             })
             .style("stroke-width", "1.5px");
 
@@ -160,7 +211,7 @@
                 return d._children ? "lightsteelblue" : "#fff";
             })
             .style("stroke", function(d) {
-                return d.flag ? "red" : 'green'
+                return d.data.flag ? "red" : 'green'
             })
             .style("stroke-width", "1.5px");
 
@@ -186,19 +237,16 @@
 
         // Enter any new links at the parent's previous position.
         link.enter().insert("path", "g") //insert 在g元素之前插入path元素，但是g元素怎么选择的，为什么不是在外层的g元素？？？
-            .attr("class", "link")
-            // .attr("d", function(d) {
-            //     var o = { x: source.x0, y: source.y0 };
 
-            //     return diagonal({ source: o, target: o }); //???d是什么属性？source target？？wu
-            // });
+            .attr("class", "link")
             .attr("d", function(d) {
                 var o = { x: source.x0, y: source.y0 };
                 return lineLink({ source: o, target: o });
             });
 
         // Transition links to their new position.
-        link.transition()
+        d3.transition()
+            .selectAll("path.link")
             .duration(duration)
             .attr("d", lineLink);
 
@@ -250,5 +298,50 @@
 
     function mouseout() {
         d3.selectAll(".vz-weighted_tree-tip").remove();
+    }
+    //标签圈人 拖动操作 效果没有做完，删除及确定
+    function mousedown(node) {
+        var div = document.createElement('div');
+        div.innerHTML = node.data.name;
+        console.log(node)
+        setCss(div,{
+            position:'fixed',
+            zIndex:'200',
+            left:(node.y + 100) + 'px',
+            top:(node.x - 20) + 'px'
+        })
+        document.body.appendChild(div)
+        document.onmousemove = function(e) {
+            var x = e.clientX - div.offsetWidth/2,
+                y = e.clientY - div.offsetHeight/2;
+            setCss(div,{
+                left: x + 'px',
+                top: y + 'px'
+            })
+        }
+        document.onmouseup = function(e) {
+            //数据元素处理在vue中数据驱动
+            var selectArea = document.getElementById('selectArea');
+            var selectAreaL = selectArea.offsetLeft,selectAreaT = selectArea.offsetTop;
+            if(e.clientX > selectAreaL && e.clientX < selectAreaL + 300 && e.clientY > selectAreaT && e.clientY < selectAreaT + 400){
+                var list = selectArea.getElementsByClassName('list')[0];
+                var li = document.createElement('li');
+                li.innerHTML = div.innerHTML;
+                li.className = "active";
+                list.appendChild(li);
+                //当前选中，其余li取消选中
+            }
+            div.parentNode.removeChild(div)
+            document.onmousemove = null;
+            document.onmouseup = null;
+
+        }
+
+    }
+
+    function setCss(a, b) {
+        for (var i in b) {
+            a.style[i] = b[i];
+        }
     }
     </script>

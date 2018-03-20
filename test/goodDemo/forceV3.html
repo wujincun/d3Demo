@@ -107,6 +107,8 @@
         var linear = d3.scale.linear()
             .domain([d3.min(values), d3.max(values)])
             .range([8, 20]);
+
+            console.log(linear(0));
         // Restart the force layout.
         force
             .nodes(nodes) //取得或者设置布局的节点数组。 参数？？
@@ -114,7 +116,6 @@
             .start(); //当节点变化时启动或者重启模拟。
         // Update links.
         link = link.data(links);
-        console.log(link)
 
         link.exit().remove();
 
@@ -150,7 +151,6 @@
             .append('text')
             .attr('class', 'fa')
             .attr('fill', function(d) {
-                console.log(d)
                 if (d.status === 0) { //在售
                     return "green"
                 } else if (d.status === 3) { //停售
@@ -185,8 +185,8 @@
             })
             .append('circle')
             .attr('r', function(d) {
-                //添加比例尺 ，车和关联原因 颜色，filter不同的类型添加不同颜色样式
-                return d.value && linear(d.value)
+                //添加比例尺 ，车和关联原因 颜色，filter不同的类型添加不同颜色样
+                return linear(d.value)
             })
             .attr('fill', '#ec3d25') //红色亮度低一点
             .attr('stroke', 'red');
@@ -210,6 +210,7 @@
             .attr('r', function(d) {
                 //添加比例尺 ，车和关联原因 颜色，filter不同的类型添加不同颜色样式
                 return d.value && linear(d.value)
+
             })
             .attr('fill', '#fff')
             .attr('stroke', 'red');
@@ -220,7 +221,8 @@
             .append('circle')
             .attr('r', function(d) {
                 //添加比例尺 ，车和关联原因 颜色，filter不同的类型添加不同颜色样式
-                return d.value && linear(d.value)
+                return linear(d.value)
+
             })
             .attr('fill', '#fff')
             .attr('stroke', 'green');
@@ -240,7 +242,6 @@
                 return color[d.source.group];
             }); //'#4b8fc8'
         link.attr("x1", function(d) { 
-            console.log(d)
             return d.source.x; 
         })
             .attr("y1", function(d) { return d.source.y; })
@@ -302,7 +303,7 @@
         //关联原因节点
         userNodes.forEach(function(userNode) {
             //添加关联原因节点
-            var relations = userNode.relations,
+            var relations = userNode.relations;
             if (relations && relations.length > 0) {
                 relations.forEach(function(relation) {
                     var relationType = relation.relationType,
@@ -318,7 +319,7 @@
                         nodes.push(relationNode);
                         //???links 数据处理
                         links.push({
-                            source: carNode['status'],
+                            source: 0,
                             target: relationNode
                         });
                     }

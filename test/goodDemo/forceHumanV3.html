@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 <style>
 .link {
     stroke: #999;
@@ -37,7 +38,7 @@ d3.json("/data/humanGraph.json", function(error, result) {
     var graph = dataProgress(result.data.mappingGraph);
     force
         .nodes(graph.nodes) //取得或者设置布局的节点数组。 参数？？
-        .links(graph.links,function(d){}) //取得或者设置节点间的链接数组。 参数？？？
+        .links(graph.links, function(d) {}) //取得或者设置节点间的链接数组。 参数？？？
         .start(); //当节点变化时启动或者重启模拟。
 
     link = link
@@ -54,11 +55,18 @@ d3.json("/data/humanGraph.json", function(error, result) {
         .attr('class', 'node')
         .call(force.drag);
     //不同的类型不同形状，不同的活跃度不同颜色    
-    nodeEnter.filter(function(d) {
-            return d.type === 'phone'
-        })
-        .append('circle')
-        .attr("r", 5)
+    //类型为phone时
+    var phoneNode = nodeEnter.filter(function(d) {
+        return d.type === 'phone' ||  d.type === 'encrypt_phone'
+    });
+    phoneNode.append('rect')
+        .attr('fill', '#fff')
+        .style('width', '20')
+        .style('height', '20')
+        .attr("x", "-10")
+        .attr("y", "-10");
+    phoneNode.append('text')
+        .attr('class', 'fa')
         .attr("fill", function(d) {
             if (d.type === 'guid') {
                 return color(10);
@@ -67,12 +75,23 @@ d3.json("/data/humanGraph.json", function(error, result) {
             } else if (d.type === 'encrypt_phone') {
                 return color(20);
             }
-        });
-    nodeEnter.filter(function(d) {
-            return d.type === 'guid'
         })
-        .append('circle')
-        .attr("r", 10)
+        .text('\uf10b')
+        .style('font-size', '30')
+        .attr('x', '-6')
+        .attr('y', '10')
+    //类型为guid时
+    var guidNode = nodeEnter.filter(function(d) {
+        return d.type === 'guid'
+    })
+    guidNode.append('rect')
+        .attr('fill', '#fff')
+        .style('width', '20')
+        .style('height', '20')
+        .attr("x", "-8")
+        .attr("y", "-13");
+    guidNode.append('text')
+        .attr('class', 'fa')
         .attr("fill", function(d) {
             if (d.type === 'guid') {
                 return color(10);
@@ -81,21 +100,24 @@ d3.json("/data/humanGraph.json", function(error, result) {
             } else if (d.type === 'encrypt_phone') {
                 return color(20);
             }
-        });
-    nodeEnter.filter(function(d) {
-            return d.type === 'encrypt_phone'
         })
-        .append('circle')
-        .attr("r", 20)
-        .attr("fill", function(d) {
-            if (d.type === 'guid') {
-                return color(10);
-            } else if (d.type === 'phone') {
-                return color(15);
-            } else if (d.type === 'encrypt_phone') {
-                return color(20);
-            }
-        });
+        .text('\uf076')
+        .attr('dx','-5')
+        .attr('dy','2');
+    // nodeEnter.filter(function(d) {
+    //         return d.type === 'encrypt_phone'
+    //     })
+    //     .append('circle')
+    //     .attr("r", 20)
+    //     .attr("fill", function(d) {
+    //         if (d.type === 'guid') {
+    //             return color(10);
+    //         } else if (d.type === 'phone') {
+    //             return color(15);
+    //         } else if (d.type === 'encrypt_phone') {
+    //             return color(20);
+    //         }
+    //     });
 });
 
 function tick() {

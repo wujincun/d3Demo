@@ -8,7 +8,7 @@
             {
                 "clueId": 19776520,
                 "puid": 3002745032,
-                "status": 0,
+                "status": 2,
                 "statusDesc": "在售",
                 "isFolded": false
             },
@@ -148,7 +148,7 @@
                 "type": "encrypt_phone",
                 "id": "v1342vSIGD1PLIdAg0m5rWSA\u003d\u003d",
                 "isCarDealer": false,
-                "dealProbability": 0.5,
+                "dealProbability": 1,
                 "status": 2,
                 "statusDesc": "未成交",
                 "relations": [
@@ -205,7 +205,7 @@
                 "type": "encrypt_phone",
                 "id": "v1tBD/q0FdDLlC5kE+hS92pQ\u003d\u003d",
                 "isCarDealer": true,
-                "dealProbability": 0.5,
+                "dealProbability": 0,
                 "status": 2,
                 "statusDesc": "未成交",
                 "relations": [
