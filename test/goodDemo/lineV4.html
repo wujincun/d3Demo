@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ZheXian</title>
+    <script type="text/javascript" src="/js/d3.v4.min.js"></script>
+    <style>
+    body {
+
+        height: 100%;
+    }
+
+    .title {
+        font-family: Arial, 微软雅黑;
+        font-size: 18px;
+        text-anchor: middle;
+    }
+
+    .subTitle {
+        font-family: Arial, 宋体;
+        font-size: 12px;
+        text-anchor: middle;
+        fill: #666
+    }
+
+    .axis path,
+
+    .axis line {
+
+        fill: none;
+
+        stroke: black;
+
+        shape-rendering: crispEdges;
+    }
+
+    .axis text {
+
+        font-family: sans-serif;
+
+        font-size: 11px;
+
+        fill: #999;
+    }
+
+    .x_inner_line path,
+
+    .x_inner_line line,
+    .y_inner_line path,
+
+    .y_inner_line line {
+
+        fill: none;
+
+        stroke: #E7E7E7;
+
+        shape-rendering: crispEdges;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="part3">
+    </div>
+    <script type="text/javascript">
+    var dataset = [5, 3, 1, 5, 2, 4, 2];
+
+    var myDate = new Date(); //获取今天日期
+    myDate.setDate(myDate.getDate() - 6);
+    var xMarks = [];
+    var dateTemp;
+    for (var i = 0; i < 7; i++) {
+        dateTemp = (myDate.getMonth() + 1) + "月" + myDate.getDate() + "日";
+        xMarks.push(dateTemp);
+        myDate.setDate(myDate.getDate() + 1);
+    };
+
+    var w = 600;
+    var h = 400;
+
+    //定义画布
+
+    var svg = d3.select("body")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+
+    //横坐标轴比例尺
+
+    var xScale = d3.scaleLinear()
+        .domain([0, dataset.length - 1])
+        .range([60, 400]); //这个range相当于横轴的左右平移
+
+    //纵坐标轴比例尺
+
+    var yScale = d3.scaleLinear()
+        .domain([0, d3.max(dataset)])
+        .range([220, 60]);
+
+    //定义横轴网格线
+
+    var xInner = d3.axisBottom()
+        .scale(xScale)
+        .tickSize(-160, 0, 0) //调整网格线长度 长度和起始位置，但是更改后两个参数没有效果？？？？
+        .ticks(dataset.length)
+        .tickFormat("");
+
+    //添加横轴网格线
+
+    svg.append("g")
+        .attr("class", "x_inner_line")
+        .attr("transform", "translate(0," + 220 + ")") //用来把纵的网格线上移的
+        .call(xInner);
+
+    //定义纵轴网格线
+
+    var yInner = d3.axisLeft()
+        .scale(yScale)
+        .tickSize(-340, 0, 0)
+        .ticks(5) //算法，2，5，10 ???？
+        .tickFormat(""); //为了让所有的tick都没有标注
+
+
+    //添加纵轴网格线
+
+    var yBar = svg.append("g")
+        .attr("class", "y_inner_line")
+        .attr("transform", "translate(" + 60 + ",0)")
+        .call(yInner);
+    //定义横轴
+
+    var xAxis = d3.axisBottom()
+        .scale(xScale)
+        .ticks(dataset.length);
+
+    //添加横坐标轴并通过编号获取对应的横轴标签
+
+    var xBar = svg.append("g")
+        .attr("class", "axis")
+        .attr("transform", "translate(0," + 220 + ")") //用来上下平移横轴位置
+        .call(xAxis)
+        .selectAll("text")
+        .text(function(d) { return xMarks[d]; });
+
+    //定义纵轴
+
+    var yAxis = d3.axisLeft()
+        .scale(yScale)
+        .ticks(5); //这个是细分度
+
+    //添加纵轴
+
+    var yBar = svg.append("g")
+        .attr("class", "axis")
+        .attr("transform", "translate(" + 60 + ",0)")
+        .call(yAxis);
+
+    //添加折线
+
+    var line = d3.line()
+        .x(function(d, i) { return xScale(i); })
+        .y(function(d) { return yScale(d); });
+
+    var path = svg.append("path")
+        .attr("d", line(dataset))
+        .style("fill", "#F00")
+        .style("fill", "none")
+        .style("stroke-width", 1)
+        .style("stroke", "#09F")
+        .style("stroke-opacity", 0.9);
+
+    //添加系列的小圆点
+
+    svg.selectAll("circle")
+        .data(dataset)
+        .enter()
+        .append("circle")
+        .attr("cx", function(d, i) {
+            return xScale(i);
+        })
+        .attr("cy", function(d) {
+            return yScale(d);
+        })
+        .attr("r", 5)
+        .attr("fill", "#09F");
+    </script>
+</body>
+
+</html>
