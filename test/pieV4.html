@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script type="text/javascript" src="/js/d3.v4.min.js"></script>
+    <style type="text/css">
+    svg {
+        display: block;
+        height: 500px;
+        width: 500px;
+        margin: 100px auto;
+    }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+    let dataset = [30, 10, 43, 55, 13];
+    let pie = d3.pie();
+    let pieData = pie(dataset); //布局
+    let color = d3.scaleOrdinal(d3.schemeCategory20);
+
+    let outerRadius = 150,
+        innerRadius = 0;
+    let arc = d3.arc() //生成器
+        .innerRadius(innerRadius)
+        .outerRadius(outerRadius);
+
+    let svg = d3.select('body').append('svg');
+
+    let arcs = svg.selectAll('g')
+        .data(pieData)
+        .enter()
+        .append('g')
+        .attr("transform", "translate( 250, 250)");;
+    arcs.append('path')
+        .attr('fill', function(d, i) {
+            return color(i)
+        })
+        .attr('d', function(d) {
+            return arc(d)
+        });
+    arcs.append('text')
+        .attr("transform", function(d) {
+            return "translate(" + arc.centroid(d) + ")"; //arc.centroid计算出弧形中心
+        })
+        .attr("text-anchor", "middle")
+        .text(function(d, i) {
+            return d.data
+        })
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>完整的柱形图</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+    var width = 500;
+    var height = 500;
+    var rectHeight = 30,
+        rectGap = rectHeight * .3;
+    var textWidth = 50,dataWidth = 100;
+    var minWidth = 100;
+    //画布周边的空白
+    var padding = { left: 30, right: 30, top: 20, bottom: 20 };
+    //定义一个数组
+    var data = [22, 18, 18];
+    var dataset = [{
+            label: "beijing",
+            name: "北京",
+            count: 22.898
+        },
+        {
+            label: "shanghai",
+            name: "上海",
+            count: 18.000
+        },
+        {
+            label: "shenzhen",
+            name: "深圳",
+            count: 15.777
+        }
+    ];
+
+    var scale = d3.scaleLinear() //V4版本
+        .domain([dataset[dataset.length - 1].count, dataset[0].count])
+        .range([minWidth, width - padding.left - padding.right - textWidth - dataWidth]);
+    var svg = d3.select('body').append('svg').attr('width', width).attr('height', height);
+
+    var rects = svg.selectAll('MyRect')
+        .data(dataset)
+        .enter()
+        .append('g')
+        .attr('class', 'MyRect')
+
+    rects.append('text')
+        .attr('class', 'text')
+        .text(function(d) {
+            return d.name
+        })
+        .attr('x', function(d, i) {
+            return padding.left;
+        })
+        .attr('y', function(d, i) {
+            return i * rectHeight + rectHeight / 2 + padding.top;
+        })
+
+    rects.append('rect')
+        .attr('class', 'rect')
+        .attr('x', function(d, i) {
+            return (padding.left + textWidth);
+        })
+        .attr('y', function(d, i) {
+            return i * rectHeight + padding.top;
+        })
+        .attr('width', function(d) {
+            return scale(d.count)
+        })
+        .attr('height', function(d, i) {
+            return rectHeight - rectGap;
+        })
+        .attr('fill', 'steelblue');
+  rects.append('text')
+        .attr('class', 'text')
+         .attr('width', dataWidth)
+        .attr('text-anchor','start')
+        .text(function(d) {
+            return d.count
+        })
+        .attr('x', function(d, i) {
+            return  width  - padding.right  - dataWidth + 10;
+        })
+        .attr('y', function(d, i) {
+            return i * rectHeight + rectHeight / 2 + padding.top;
+        })
+    </script>
+</body>
+
+</html>

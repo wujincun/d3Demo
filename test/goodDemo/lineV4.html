@@ -64,7 +64,10 @@
     <div id="part3">
     </div>
     <script type="text/javascript">
-    var dataset = [5, 3, 1, 5, 2, 4, 2];
+    let dataset = [
+        [5, 3, 1, 5, 2, 4, 2],
+        [6, 4, 3, 6, 4, 5, 3]
+    ];
 
     var myDate = new Date(); //获取今天日期
     myDate.setDate(myDate.getDate() - 6);
@@ -89,13 +92,13 @@
     //横坐标轴比例尺
 
     var xScale = d3.scaleLinear()
-        .domain([0, dataset.length - 1])
+        .domain([0, dataset[0].length - 1])
         .range([60, 400]); //这个range相当于横轴的左右平移
 
     //纵坐标轴比例尺
 
     var yScale = d3.scaleLinear()
-        .domain([0, d3.max(dataset)])
+        .domain([0, d3.max(dataset[0])])
         .range([220, 60]);
 
     //定义横轴网格线
@@ -103,7 +106,7 @@
     var xInner = d3.axisBottom()
         .scale(xScale)
         .tickSize(-160, 0, 0) //调整网格线长度 长度和起始位置，但是更改后两个参数没有效果？？？？
-        .ticks(dataset.length)
+        .ticks(dataset[0].length)
         .tickFormat("");
 
     //添加横轴网格线
@@ -132,7 +135,7 @@
 
     var xAxis = d3.axisBottom()
         .scale(xScale)
-        .ticks(dataset.length);
+        .ticks(dataset[0].length);
 
     //添加横坐标轴并通过编号获取对应的横轴标签
 
@@ -162,28 +165,53 @@
         .x(function(d, i) { return xScale(i); })
         .y(function(d) { return yScale(d); });
 
-    var path = svg.append("path")
-        .attr("d", line(dataset))
-        .style("fill", "#F00")
-        .style("fill", "none")
-        .style("stroke-width", 1)
-        .style("stroke", "#09F")
-        .style("stroke-opacity", 0.9);
+    dataset.forEach(value => {
+        svg.append("path")
+            .attr("d", line(value))
+            .style("fill", "#F00")
+            .style("fill", "none")
+            .style("stroke-width", 1)
+            .style("stroke", "#09F")
+            .style("stroke-opacity", 0.9);
+        svg.append('g')
+            .attr('class', 'circles')
+            .selectAll("circle")
+            .data(value)
+            .enter()
+            .append("circle")
+            .attr("cx", function(d, i) {
+                return xScale(i);
+            })
+            .attr("cy", function(d) {
+                return yScale(d);
+            })
+            .attr("r", 5)
+            .attr("fill", "#09F")
+            .on("mouseover", function(d, i) {
+                var tx = parseFloat(d3.select(this).attr("cx"));
+                var ty = parseFloat(d3.select(this).attr("cy"));
+                var tips = svg.append("g")
+                    .attr("id", "tips");
+                var tipRect = tips.append("rect")
+                    .attr("x", tx + 10)
+                    .attr("y", ty + 10)
+                    .attr("width", 120)
+                    .attr("height", 30)
+                    .attr("fill", "#FFF")
+                    .attr("stroke-width", 1)
+                    .attr("stroke", "#CCC");
+                var tipText = tips.append("text")
+                    .attr("class", "tiptools")
+                    .text(d)
+                    .attr("x", tx + 20)
+                    .attr("y", ty + 30);
+            })
+            .on("mouseout", function(d, i) {
+                d3.select("#tips").remove();
+            });
+    })
 
     //添加系列的小圆点
-
-    svg.selectAll("circle")
-        .data(dataset)
-        .enter()
-        .append("circle")
-        .attr("cx", function(d, i) {
-            return xScale(i);
-        })
-        .attr("cy", function(d) {
-            return yScale(d);
-        })
-        .attr("r", 5)
-        .attr("fill", "#09F");
     </script>
 </body>
 

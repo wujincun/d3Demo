@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<table border="1" cellspacing="0" width="50%" height="150">
+    <caption>纵向合并单元格</caption>
+    <tr>
+        <th>班级</t>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>电话</th>
+    </tr>
+    <tr>
+        <td rowspan="2">601班</td>
+        <td>Jack</td>
+        <td>24</td>
+        <td>1351234567</td>
+    </tr>
+    <tr>
+        <td>Tom</td>
+        <td>22</td>
+        <td>1351234567</td>
+    </tr>
+    <!--rowspan中必须指定要合并的列数目，是两行还是三行等等-->
+    <tr>
+        <td rowspan="3">602班</td>
+        <td>Rose</td>
+        <td>22</td>
+        <td>1351234567</td>
+    </tr>
+    <tr>
+        <td>张三</td>
+        <td>25</td>
+        <td>1351234567</td>
+    </tr>
+    <tr>
+        <td>李四</td>
+        <td>25</td>
+        <td>1351234567</td>
+    </tr>
+</table>
+
+
+
+
+</html>
+<script>
+var infoObj=[
+            {
+                name:"张三",
+                sex:'female',
+                age:30
+            },
+            {
+                name:"李四",
+                sex:'male',
+                age:20
+            },
+            {
+                name:"王五",
+                sex:'female',
+                age:40
+            }
+        ];
+        // 指定排序的比较函数
+    function compare(property){
+         return function(obj1,obj2){
+             var value1 = obj1[property];
+             var value2 = obj2[property];
+             return value1 - value2;     // 升序
+         }
+    }
+    var sortObj = infoObj.sort(compare("age"));
+    console.log(sortObj); // 
+
+let str = `<p>这是一个测试</p>
+<p>测试<strong>加粗</strong>测试<strong>加粗</strong>测试<a href="http://www.baidu.com/" target="_blank">连接</a></p>
+<p>测试 空格</p>
+<p>测试<a href="http://www.baidu.com" target="_blank">连接</a>测试<a href="http://www.baidu.com/" target="_blank">连接</a></p>`;
+
+function htmlToJson(str) {
+    let regexp = {
+        checkHtml: /<[^>]+>/g,
+        tagP: /\<p[^>]*>((?:(?!<\/p>)[\s\S])*)\<\/p\>/g,
+        tagA: /\<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)\<\/a\>/g,
+        tagStrong: /\<strong[^>]*>((?:(?!<\/strong>)[\s\S])*)\<\/strong\>/g
+    };
+    let resultP, resultA, resultStrong;
+    let ops = [];
+    while ((resultP = regexp.tagP.exec(str)) != null) {
+        //处理p标签
+        if (!regexp.checkHtml.test(resultP[1])) {
+            ops.push({
+                "insert": resultP[1]
+            });
+        }
+        //1、按顺序处理
+        //2、匹配文案
+        //匹配文案
+
+        //处理a标签
+        if (resultP[1].indexOf('</a>') !== -1) {
+            while ((resultA = regexp.tagA.exec(resultP[1])) != null) {
+                ops.push({
+                    "attributes": {
+                        "link": resultA[1]
+                    },
+                    "insert": resultA[2]
+                });
+            }
+        }
+        //处理strong标签
+        if (resultP[1].indexOf('</strong>') !== -1) {
+            console.log(resultP[1])
+            while ((resultStrong = regexp.tagStrong.exec(resultP[1])) != null) {
+                ops.push({
+                    "attributes": {
+                        "bold": true
+                    },
+                    "insert": resultStrong[1]
+                })
+
+            }
+        }
+        ops.push({
+            "insert": "\n"
+        });
+    }
+    console.log(ops)
+}
+htmlToJson(str)
+</script>
