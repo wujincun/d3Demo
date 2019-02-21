@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container" style="min-width: 410px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+</body>
+</html>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/funnel.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script>
+  
+
+Highcharts.chart('container', {
+  chart: {
+    type: 'funnel'
+  },
+  title: {
+    text: 'Sales funnel'
+  },
+  plotOptions: {
+    series: {
+      dataLabels: {
+        enabled: true,
+        format: '<b>{point.name}</b> ({point.y:,.0f})',
+        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
+        softConnector: true
+      },
+      center: ['40%', '50%'],
+      neckWidth: '30%',
+      neckHeight: '25%',
+      width: '80%'
+    }
+  },
+  legend: {
+    enabled: false
+  },
+  series: [{
+    name: 'Unique users',
+    data: [
+      ['Website visits', 15654],
+      ['Downloads', 4064],
+      ['Requested price list', 1987],
+      ['Invoice sent', 976],
+      ['Finalized', 846]
+    ]
+  }]
+});
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="funnel"></div>
+</body>
+</html>
+    <script type="text/javascript" src="/js/d3.v4.min.js"></script>
+    <script type="text/javascript" src="/js/funnel.js"></script>
+  <script>
+    const data = [
+        { label: 'Inquiries', value: 3000 },
+        { label: 'Applicants', value: 500 },
+        { label: 'Admits', value: 500 },
+        { label: 'Deposits', value: 200 },
+    ];
+    const options = {
+        chart: {
+            width: 600,
+            totalCount: 10000
+        },
+        block: {
+            dynamicHeight: true,
+            minHeight: 15,
+            dynamicSlope: true,
+
+        },
+        tooltip:{
+            enabled: true
+        }
+    };
+ 
+    const chart = new D3Funnel('#funnel');
+    chart.draw(data, options);
+</script> 
+
+

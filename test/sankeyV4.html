@@ -1,21 +1,24 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <svg width="960" height="500"></svg>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://unpkg.com/d3-sankey@0.6"></script>
+<script src="/js/d3.v4.min.js"></script>
+<script src="/js/sankey.js"></script>
 <script>
-
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
-var formatNumber = d3.format(",.0f"),//???戳 d3.format 帮助创建格式化。例如 axis.tickFormat(d3.format(",.0f")) 会把整数在千位上用逗号隔开来显示。首先定义格式：var commasFormatter = d3.format(",.0f")，这样你可以在你的数据上像方法那样调用它，例如，在以逗号分组的整数前加上货币单位：.tickFormat(function(d) { return "$" + commasFormatter(d); })。
-    format = function(d) { return formatNumber(d) + " TWh"; },//??TWh核电量单位1KWh（1000W功率一小时）
-    color = d3.scaleOrdinal(d3.schemeCategory10);
+// var formatNumber = d3.format(",.0f"), //???戳 d3.format 帮助创建格式化。例如 axis.tickFormat(d3.format(",.0f")) 会把整数在千位上用逗号隔开来显示。首先定义格式：var commasFormatter = d3.format(",.0f")，这样你可以在你的数据上像方法那样调用它，例如，在以逗号分组的整数前加上货币单位：.tickFormat(function(d) { return "$" + commasFormatter(d); })。
+//     format = function(d) { return formatNumber(d) + " TWh"; }, //??TWh核电量单位1KWh（1000W功率一小时）
+     color = d3.scaleOrdinal(d3.schemeCategory10);
 
 var sankey = d3.sankey()
-    .nodeWidth(15)//nodeWidth表示节点水平宽度，这个属性可以用来设置矩形的宽度等；
-    .nodePadding(10)//nodePadding表示矩形的垂直方向的间距；
-    .extent([[1, 1], [width - 1, height - 6]]);//???指定桑基图的范围，如果未指定则默认为[[0, 0], [1, 1]]，// [[x0, y0], [x1, y1]], where x0 is the left side of the extent, y0 is the top, x1 is the right and y1 is the bottom
+    .nodeWidth(15) //nodeWidth表示节点水平宽度，这个属性可以用来设置矩形的宽度等；
+    .nodePadding(10) //nodePadding表示矩形的垂直方向的间距；
+    .extent([
+        [1, 1],
+        [width - 1, height - 6]
+    ]).nodeAlign(d3.sankeyRight)
+    //.nodeAlign('right'); //???指定桑基图的范围，如果未指定则默认为[[0, 0], [1, 1]]，// [[x0, y0], [x1, y1]], where x0 is the left side of the extent, y0 is the top, x1 is the right and y1 is the bottom
 
 
 var link = svg.append("g")
@@ -23,52 +26,52 @@ var link = svg.append("g")
     .attr("fill", "none")
     .attr("stroke", "#000")
     .attr("stroke-opacity", 0.2)
-  .selectAll("path");
+    .selectAll("path");
 
 var node = svg.append("g")
     .attr("class", "nodes")
     .attr("font-family", "sans-serif")
     .attr("font-size", 10)
-  .selectAll("g");
+    .selectAll("g");
 
 d3.json("/data/sankey.json", function(error, energy) {
-  if (error) throw error;
+    if (error) throw error;
+    
+    sankey(energy);
+    console.log(energy)
 
-  sankey(energy);
+    link = link
+        .data(energy.links)
+        .enter().append("path")
+        .attr("d", d3.sankeyLinkHorizontal()) //d3.sankeyLinkHorizontal()返回一个适合桑基图横向联系的形状。
+        .attr("stroke-width", function(d) { return Math.max(1, d.width); });
 
-  link = link
-    .data(energy.links)
-    .enter().append("path")
-      .attr("d", d3.sankeyLinkHorizontal())//d3.sankeyLinkHorizontal()返回一个适合桑基图横向联系的形状。
-      .attr("stroke-width", function(d) { return Math.max(1, d.width); });
+    link.append("title")
+        .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + (d.value); }); //为横向流线添加title描述
 
-  link.append("title")
-      .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });//为横向流线添加title描述
+    node = node
+        .data(energy.nodes)
+        .enter().append("g");
 
-  node = node
-    .data(energy.nodes)
-    .enter().append("g");
+    node.append("rect")
+        .attr("x", function(d) { return d.x0; })
+        .attr("y", function(d) { return d.y0; })
+        .attr("height", function(d) { return d.y1 - d.y0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .attr("fill", function(d) { return color(d.name.replace(/ .*/, "")); })
+        .attr("stroke", "#000");
 
-  node.append("rect")
-      .attr("x", function(d) { return d.x0; })
-      .attr("y", function(d) { return d.y0; })
-      .attr("height", function(d) { return d.y1 - d.y0; })
-      .attr("width", function(d) { return d.x1 - d.x0; })
-      .attr("fill", function(d) { return color(d.name.replace(/ .*/, "")); })
-      .attr("stroke", "#000");
+    node.append("text")
+        .attr("x", function(d) { return d.x0 - 6; })
+        .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
+        .attr("dy", "0.35em")
+        .attr("text-anchor", "end")
+        .text(function(d) { return d.name; })
+        .filter(function(d) { return d.x0 < width / 2; })
+        .attr("x", function(d) { return d.x1 + 6; })
+        .attr("text-anchor", "start");
 
-  node.append("text")
-      .attr("x", function(d) { return d.x0 - 6; })
-      .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
-      .attr("dy", "0.35em")
-      .attr("text-anchor", "end")
-      .text(function(d) { return d.name; })
-    .filter(function(d) { return d.x0 < width / 2; })
-      .attr("x", function(d) { return d.x1 + 6; })
-      .attr("text-anchor", "start");
-
-  node.append("title")
-      .text(function(d) { return d.name + "\n" + format(d.value); });
+    node.append("title")
+        .text(function(d) { return d.name + "\n" + (d.value); });
 });
-
 </script>

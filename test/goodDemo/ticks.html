@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ZheXian</title>
+    <script type="text/javascript" src="/js/d3.v4.min.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="part3">
+    </div>
+    <script type="text/javascript">
+    var w = 600;
+    var h = 400;
+    var svg = d3.select("#part3")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+    let scale = d3.scaleLinear().domain([0, 300]).range([0, 300])
+    let axis = d3.axisBottom()
+        .scale(scale).ticks(3)
+
+    svg.append("g")
+        .attr("transform", "translate(20, 220)")
+        .call(axis);
+    //添加系列的小圆点
+    </script>
+</body>
+
+</html>

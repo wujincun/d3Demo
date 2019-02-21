@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>funnel</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="funnel"></div>
+</body>
+
+</html>
+<script type="text/javascript" src="/js/d3.v4.min.js"></script>
+<script>
+let dataset = [{ count: 19474,name:'浏览浏览浏览浏览浏览浏览' }, { count: 18483,name:'浏览浏览' }, { count: 11628,name:'浏览浏览浏览浏览浏览' }, { count: 97,name:'浏览' }];
+let graphColor = '#97cdf5', textColor = '#615e5e';
+let width = 1000,
+    height = 600;
+let padding = { left: 400, right: 40, top: 20, bottom: 20 };
+let reTextGap = 16,
+    lineGap = 10; // 相对值距离箭头线的距离；箭头线相对于上下绝对值框的距离
+let textSize = 20; //绝对值文字大小
+// 比例尺
+let innerWidth = width - padding.left - padding.right,
+    innerHeight = height - padding.top - padding.bottom,
+    maxPercent = dataset[dataset.length - 1].count / dataset[0].count;
+
+let itemHeight = innerHeight / dataset.length,
+    rectHeight = itemHeight * 0.44,
+    trapezoidHeight = itemHeight * 0.56;
+let scale = d3.scaleLinear() //V4版本
+    .domain([dataset[dataset.length - 1].count, dataset[0].count])
+    .range([innerWidth * maxPercent, innerWidth]);
+
+// 画布
+let svg = d3.select('#funnel').append('svg').attr('width', width).attr('height', height);
+// 箭头
+let defs = svg.append("defs");
+let arrow_path = "M2,2 L10,6 L2,10 L6,6 L2,2";
+let arrowMarker = defs.append("marker")
+    .attr("id", "arrow")
+    .attr("markerUnits", "strokeWidth")
+    .attr("markerWidth", "8")
+    .attr("markerHeight", "8")
+    .attr("viewBox", "0 0 12 12")
+    .attr("refX", "8")
+    .attr("refY", "6")
+    .attr("orient", "auto");
+arrowMarker.append("path")
+    .attr("d", arrow_path)
+    .attr("fill", graphColor);
+
+// 漏斗每层
+let funnelItem = svg.selectAll('.funnelItem')
+    .data(dataset)
+    .enter()
+    .append('g')
+    .attr('class', 'funnelItem');
+// 图例  
+funnelItem.append('text')
+    .attr('class', 'legend')
+    .attr('text-anchor', 'end')
+    .attr('fill', textColor)
+    .attr('font-size', textSize + 'px')
+    .text(function(d) {
+        return d.name
+    })
+    .attr('x', function(d, i) {
+        return padding.left;
+    })
+    .attr('y', function(d, i) {
+        return i * (rectHeight + trapezoidHeight) + padding.top + rectHeight / 2 + textSize;
+    });  
+// 图
+let funnelGraphItem = funnelItem
+    .append('g')  
+    .attr('class', 'funnelGraphItem')
+    .attr("transform", "translate(" + padding.left/2 + "," + padding.top + ")");
+// 当级的层级      
+funnelGraphItem.append('rect')
+    .attr('class', 'rect')
+    .attr('x', function(d, i) {
+        return width / 2 - scale(d.count) / 2;
+    })
+    .attr('y', function(d, i) {
+        return i * (rectHeight + trapezoidHeight) + padding.top;
+    })
+    .attr('width', function(d) {
+        return scale(d.count)
+    })
+    .attr('height', function(d, i) {
+        return rectHeight;
+    })
+    .attr('fill', graphColor);
+// 当级的绝对数值      
+funnelGraphItem.append('text')
+    .attr('class', 'value')
+    .attr('text-anchor', 'middle')
+    .attr('fill', textColor)
+    .attr('font-size', textSize + 'px')
+    .text(function(d) {
+        return d.count
+    })
+    .attr('x', function(d, i) {
+        return width / 2 ;
+    })
+    .attr('y', function(d, i) {
+        return i * (rectHeight + trapezoidHeight) + padding.top + rectHeight / 2 + textSize / 2;
+    });
+// 相对于上一级的百分比      
+funnelGraphItem
+    .append('text')
+    .attr('class', 'percent')
+    .attr('text-anchor', 'start')
+    .text(function(d, i) {
+        if (i - 1 >= 0) {
+            return Number((d.count / dataset[i - 1].count) * 100).toFixed(2) + '%'
+        }
+    })
+    .attr('x', function(d, i) {
+        return width / 2  + reTextGap;
+    })
+    .attr('y', function(d, i) {
+        return i * (rectHeight + trapezoidHeight) + padding.top - trapezoidHeight / 2;
+    })
+// 箭头指示线
+funnelGraphItem.append("line")
+    .filter((d, i) => {
+        return i < dataset.length - 1
+    })
+    .attr("x1", function(d, i) {
+        return width / 2 ;
+    })
+    .attr("y1", function(d, i) {
+        return i * (rectHeight + trapezoidHeight) + rectHeight + padding.top + lineGap
+    })
+    .attr("x2", function(d, i) {
+        return width / 2 ;
+    })
+    .attr("y2", function(d, i) {
+        return (i + 1) * (rectHeight + trapezoidHeight) + padding.top - lineGap
+    })
+    .attr('stroke', graphColor)
+    .attr("stroke-width", 6)
+    //应用箭头
+    .attr("marker-end", "url(#arrow)");
+// 左边界线        
+funnelGraphItem.append("line")
+    .filter((d, i) => {
+        return i < dataset.length - 1
+    })
+    .attr("x1", function(d, i) {
+        return (width - scale(d.count)) / 2 
+    })
+    .attr("y1", function(d, i) {
+        return i * (rectHeight + trapezoidHeight) + rectHeight + padding.top
+    })
+    .attr("x2", function(d, i) {
+        return (width - scale(dataset[i + 1].count)) / 2 ;
+    })
+    .attr("y2", function(d, i) {
+        return (i + 1) * (rectHeight + trapezoidHeight) + rectHeight + padding.top
+    })
+    .attr('stroke', graphColor)
+    .attr("stroke-width", 2);
+// 右边界线     
+funnelGraphItem.append("line")
+    .filter((d, i) => {
+        return i < dataset.length - 1
+    })
+    .attr("x1", function(d, i) {
+        return (width + scale(d.count)) / 2 
+    })
+    .attr("y1", function(d, i) {
+        return i * (rectHeight + trapezoidHeight) + rectHeight + padding.top
+    })
+    .attr("x2", function(d, i) {
+        return (width + scale(dataset[i + 1].count)) / 2 
+    })
+    .attr("y2", function(d, i) {
+        return (i + 1) * (rectHeight + trapezoidHeight) + rectHeight + padding.top
+    })
+    .attr('stroke', graphColor)
+    .attr("stroke-width", 2)
+</script>

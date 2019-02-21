@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+
+<body>
+    <div id="container1"></div>
+    <div id="container2"></div>
+    <script src="./d3.v4.min.js"></script>
+    <script src="./d3Charts.js"></script>
+    <script>
+    let opts = {a:1}, opts2 = {a:2}
+    
+    let d3Charts = new D3Charts();
+    d3Charts.init('#container1', opts)
+    //d3Charts.init('#container2', opts2)
+
+    // let d3Charts = new D3Charts(document.getElementById('container1'), opts)
+    // let d3Charts = new D3Charts(document.getElementById('container2'), opts2)
+    </script>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
-* {
+    * {
     margin: 0;
     padding: 0;
     list-style: none
@@ -111,12 +111,17 @@
 
 
     // 在版本4中生成器自己模拟  有问题
-    function lineLink(d) {
-        return "M" + d.source.y + "," + d.source.x +
-            "C" + (d.source.y + d.target.y) / 2 + "," + d.source.x +
-            " " + (d.source.y + d.target.y) / 2 + "," + d.target.x +
-            " " + d.target.y + "," + d.target.x;
-    }
+    // function lineLink(d) {
+    //     return "M" + d.source.y + "," + d.source.x +
+    //         "C" + (d.source.y + d.target.y) / 2 + "," + d.source.x +
+    //         " " + (d.source.y + d.target.y) / 2 + "," + d.target.x +
+    //         " " + d.target.y + "," + d.target.x;
+    // }
+    let lineLink = d3.linkHorizontal()
+        .x(function(d) { return d.y; })
+        .y(function(d) { return d.x; });
+    // body...
+
 
     // 在版本4.9.0中有添加了d3.linkHorizontal() d3.linkVertical() d3.linkRadial()三个方法来生成线
     // .attr("d", d3.linkHorizontal()
@@ -137,7 +142,10 @@
     d3.json("/data/tree.json", function(error, flare) {
         if (error) throw error;
 
-        root = d3.hierarchy(flare.data); //分层数据结构中构造root节点(根节点)...4.0中层次布局使用root节点而非直接使用JSON数据可以在输入数据和布局之间很容易的进行区分。
+        root = d3.hierarchy(flare.data) //分层数据结构中构造root节点(根节点)...4.0中层次布局使用root节点而非直接使用JSON数据可以在输入数据和布局之间很容易的进行区分。
+            // .sum(function(d) {
+            //     return d.value
+            // })
 
         //root = flare.data;
         root.x0 = height / 2;

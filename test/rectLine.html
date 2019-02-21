@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>完整的柱形图</title>
+    <style>
+    #rectLineGraph {
+        text-align: center;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: black;
+        shape-rendering: crispEdges;
+    }
+
+    .axis text {
+        font-family: sans-serif;
+        font-size: 11px;
+    }
+
+    .MyRect {
+        fill: steelblue
+    }
+
+    .MyText {
+        fill: white;
+        text-anchor: middle;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="rectLineGraph">
+    </div>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+    var percent = true;
+    var width = 700;
+    var height = 500;
+    // 节点tips的宽高
+    let tipH = 30,
+        tipW = 80;
+    let gapWidth = 10; // 间隙
+    //画布周边的空白
+    var padding = { left: 70, right: 70, top: 30, bottom: 50 };
+    let rectWidth = (width - padding.left - padding.right) / 10 - gapWidth;
+    //定义一个数组
+    var rectData = [10, 20, 30, 40, 33];
+    var lineData = [5, 10, 15, 20, 11];
+    var dates = ["2018/11/01", "2018/11/02", "2018/11/03", "2018/11/04", "2018/11/05"];
+    let yLegend = '%';
+    var svg = d3.select('#rectLineGraph').append('svg').attr('width', width).attr('height', height);
+    //V4版本-start
+    var xScale = d3.scaleBand()
+        .domain(d3.range(0, dates.length)) //返回等差数列
+        .range([0, width - padding.left - padding.right]);
+    //V4版本-end
+    var yLineScale = d3.scaleLinear() //V4版本
+        .domain([0, d3.max(lineData)])
+        .range([height - padding.bottom - padding.top, 0]);
+    var yRectScale = d3.scaleLinear() //V4版本
+        .domain([0, d3.max(rectData)])
+        .range([height - padding.bottom - padding.top, 0]);
+    // 柱状
+    let rectWrap = svg.append('g')
+        .attr('class', 'rectWrap');
+
+    rectWrap.selectAll('rect')
+        .data(rectData)
+        .enter()
+        .append('rect')
+        .attr('class', 'rect')
+        .attr('transform', 'translate(' + padding.left + ',' + padding.top + ')')
+        .attr('x', function(d, i) {
+            return xScale(i) + (xScale.bandwidth() - rectWidth) / 2;
+        })
+        .attr('y', function(d, i) {
+            return yRectScale(d);
+        })
+        .attr('width', rectWidth) // //xScale.bandwidth() - gapWidth
+        .attr('height', function(d, i) {
+            return height - padding.bottom - padding.top - yRectScale(d);
+        })
+        .attr('fill', function(d, i) {
+            return 'blue';
+        });
+    rectWrap.selectAll('rectText')
+        .data(rectData)
+        .enter()
+        .append('text')
+        .attr('class', 'rectText')
+        .attr('transform', 'translate(' + padding.left + ',' + padding.top + ')')
+        .attr('x', function(d, i) {
+            return xScale(i) + gapWidth / 2;
+        })
+        .attr('y', function(d, i) {
+            return yRectScale(d) - 25;
+        })
+        .attr('dx', function() {
+            return (xScale.bandwidth() - gapWidth) / 2; // V4版本
+        })
+        .attr('dy', function() {
+            return 20;
+        })
+        .text(function(d) {
+            return d;
+        })
+        .style('text-anchor', 'middle')
+        .attr('font-size', '12');
+    // 折线
+    let lineWrap = svg.append('g')
+        .attr('class', 'lineWrap');
+    var line = d3.line()
+        .x(function(d, i) { return xScale(i); })
+        .y(function(d) { return yLineScale(d); });
+
+    //画折线
+    lineWrap.append('path')
+        .attr('d', line(lineData))
+        .attr("transform", "translate(" + (padding.left + rectWidth +gapWidth) + "," + padding.top + ")")
+        .style('fill', 'none')
+        .style('stroke-width', 1)
+        .style('stroke', 'orange')
+        .style('stroke-opacity', 0.9);
+    // 添加系列的小圆点
+    lineWrap.append('g')
+        .attr('class', 'circles')
+        .attr("transform", "translate(" + (padding.left + rectWidth + gapWidth) + "," + padding.top + ")")
+        .selectAll('circle')
+        .data(lineData)
+        .enter()
+        .append('circle')
+        .attr('cx', function(d, i) {
+            return xScale(i);
+        })
+        .attr('cy', function(d) {
+            return yLineScale(d);
+        })
+        .attr('r', 5)
+        .attr('fill', 'orange')
+        .on('mouseover', function(d, i) {
+            var tx = parseFloat(d3.select(this).attr('cx'));
+            var ty = parseFloat(d3.select(this).attr('cy'));
+            var tips = svg.append("g")
+                .attr("id", "tips");
+            var tipRect = tips.append("rect")
+                .attr("x", tx + padding.left + 10)
+                .attr("y", ty + padding.top + 10)
+                .attr("width", tipW)
+                .attr("height", tipH)
+                .attr("fill", "#FFF")
+                .attr("stroke-width", 1)
+                .attr("stroke", "#CCC");
+            var tipText = tips.append("text")
+                .attr("class", "tiptools")
+                .attr("x", tx + padding.left + 20)
+                .attr("y", ty + padding.top + 30);
+            percent ? tipText.text(d + '%') : tipText.text(d);
+        })
+        .on('mouseout', function(d, i) {
+            d3.select('#tips').remove();
+        });
+
+
+    // 添加纵轴legend
+    let yUnit = svg.append('text')
+        .attr('transform', 'translate(' + Number(padding.left - 40) + ',' + Number(padding.top - 10) + ')')
+        .attr('font-size', '20');
+    if (yLegend) {
+        yUnit.text(yLegend);
+    } else if (percent) {
+        yUnit.text('（%）');
+    };
+    // 添加坐标  
+    svg.append('g')
+        .attr('class', 'axis')
+        .attr('transform', 'translate(' + padding.left + ',' + (height - padding.bottom) + ')')
+        .call(d3.axisBottom(xScale))
+        .selectAll('text')
+        .text(function(d, i) { return dates[i]; })
+        .style('font-size', '12')
+        .style('transform', 'rotate(-40deg) translate(-20px, 5px)'); // d3.axisBottom(xScale)  --V4版本
+    svg.append('g')
+        .attr('class', 'axis')
+        .attr('transform', 'translate(' + padding.left + ',' + padding.top + ')')
+        .call(d3.axisLeft(yLineScale))
+        .style('font-size', '12'); // d3.axisLeft(yScale) --V4版本
+    svg.append('g')
+        .attr('class', 'axis')
+        .attr('transform', 'translate(' + (width - padding.right) + ',' + padding.top + ')')
+        .call(d3.axisRight(yRectScale))
+        .style('font-size', '12'); // d3.axisLeft(yScale) --V4版本
+    </script>
+</body>
+
+</html>
