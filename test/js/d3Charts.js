@@ -52,7 +52,7 @@ class D3Charts {
       yAxis: [
         {
           name: '测试1', // 名称，和series对应的指代这份y轴对应的数据
-          position: 'right', // left ,right
+          position: 'left', // left ,right
           labels: { // 坐标轴标签
             formatter: null, // 刻度标签的内容格式器，支持字符串模板和回调函数两种形式。????
             rotate: 0, //刻度标签旋转的角度，在类目轴的类目标签显示不下的时候可以通过旋转防止标签之间重叠。
@@ -75,11 +75,11 @@ class D3Charts {
         {
           type:'bar',
           name:'测试1', 
-          //stack: '', //是否数据堆叠
+          stack: '堆叠', //是否数据堆叠
           data:[4,8,9]
         },
         {
-          type:'bar',
+          type:'line',
           name:'测试2',
           stack: '堆叠',
           data:[5,7,10]
@@ -180,7 +180,7 @@ class D3Charts {
     if(lineData.length){
       let stackLineData = this.stackLineBarDataProcess(lineData, opts.xAxis.data);
       opts.lineData = stackLineData;
-      this.drawLine()
+      this.drawLine(opts)
     }
    
   }
@@ -208,8 +208,10 @@ class D3Charts {
           stackItemData[index]['stack'] = i;
         })
       })
-      //let series = stack(stackItemData);
-      stackData.push({keys:keys, data: stackItemData})
+      let series = d3.stack().keys(keys)
+        .order(d3.stackOrderNone)
+        .offset(d3.stackOffsetNone)(stackItemData);
+      stackData.push(series)
     }
     return stackData
   }
@@ -388,6 +390,43 @@ class D3Charts {
   }
   
   drawBar(opts){
+    let barData = opts.barData;
+    let padding = opts.grid.padding;
+    let scale = this.scaleProcess(opts, barData)
+    let colorScale = scale.colorScale,
+        xScale = scale.xScale,
+        xAxisScale = scale.xAxisScale,
+        yScale = scale.yScale;
+    this.drawAxis(opts, scale)
+    barData.map((item, i) => {
+      this.svg.append("g")
+        .selectAll('g')
+        .data(item)
+        .enter()
+        .append("g")
+        .attr("fill", function(d) { 
+          return colorScale(d.key); 
+        })
+        .selectAll("rect")
+        .data(function(d) { return d; })
+        .enter()
+        .append("rect")
+        .attr("width", xAxisScale.bandwidth())
+        .attr("x", function(d, j) { 
+          return xScale(d.data.name) + xAxisScale(d.data.stack)
+
+        })
+        .attr("y", function(d) { 
+          return yScale(d[1]); 
+        })
+        .attr("height", function(d) { 
+          return yScale(d[0]) - yScale(d[1]); 
+        })
+        .attr('transform', 'translate(' + padding.left + ',' + padding.top + ')')
+    })
+  }
+
+  scaleProcess(opts, stackData){
     let height = opts.grid.height,
         width = opts.grid.width,
         padding = opts.grid.padding,
@@ -396,18 +435,6 @@ class D3Charts {
         colors = opts.colors,
         barData = opts.barData,
         xAxisBarNum = opts.xAxisBarNum;
-        
-    barData.map((item, i) => {
-      let keys = item.keys, data = item.data;
-      let series = d3.stack().keys(keys)
-        .order(d3.stackOrderNone)
-        .offset(d3.stackOffsetNone)
-        (data); 
-      // 按纵轴区分
-      
-
-      console.log(series)
-      // 颜色比例尺
       let colorScale = d3.scaleOrdinal()
           .domain(opts.series.map(value => {
             return value.name
@@ -425,14 +452,44 @@ class D3Charts {
           .padding(0.1);
       // y轴要判断是不是多纵轴，而且是不是堆叠使用？？？
       // 先认为一个纵轴
-      var y = d3.scaleLinear()
-        .domain([d3.min(series, stackMin), d3.max(series, stackMax)])
-        .rangeRound([height - padding.bottom, padding.top]);
-      
+     let yScaleData = stackData.reduce((prev, cur) => {
+        return  prev.concat(cur)
+     }, [])   
+     let yScale = d3.scaleLinear()
+        .domain([d3.min(yScaleData, stackMin), d3.max(yScaleData, stackMax)])
+        .rangeRound([height - padding.bottom - padding.top, 0]);
 
+    return {
+      colorScale,
+      xScale,
+      xAxisScale,
+      yScale
+    }
+
+    function stackMin(serie) {
+      return d3.min(serie, function(d) { 
+        return d[0]; 
+      });
+    }
+    function stackMax(serie) {
+      return d3.max(serie, function(d) { 
+        return d[1]; 
+      });
+    }
+  }
+  drawLine(opts){
+    let lineData = opts.lineData;
+    let padding = opts.grid.padding;
+    let scale = this.scaleProcess(opts, lineData)
+    let colorScale = scale.colorScale,
+        xScale = scale.xScale,
+        xAxisScale = scale.xAxisScale,
+        yScale = scale.yScale;
+    this.drawAxis(opts, scale)
+    lineData.map((item, i) => {
       this.svg.append("g")
-      .selectAll('g')
-        .data(series)
+        .selectAll('g')
+        .data(item)
         .enter()
         .append("g")
         .attr("fill", function(d) { 
@@ -448,53 +505,26 @@ class D3Charts {
 
         })
         .attr("y", function(d) { 
-          return y(d[1]); 
+          return yScale(d[1]); 
         })
         .attr("height", function(d) { 
-          return y(d[0]) - y(d[1]); 
+          return yScale(d[0]) - yScale(d[1]); 
         })
-
-      this.svg.append("g")
-          .attr("transform", "translate(0," + y(0) + ")")
-          .call(d3.axisBottom(xScale));
-
-      // this.svg.append("g")
-      //     .attr("transform", "translate(" + padding.left + ",0)")
-      //     .call(d3.axisLeft(y));
-
+        .attr('transform', 'translate(' + padding.left + ',' + padding.top + ')')
     })
-    
-
-    function stackMin(serie) {
-      return d3.min(serie, function(d) { 
-        return d[0]; 
-      });
-    }
-
-    function stackMax(serie) {
-      return d3.max(serie, function(d) { 
-        return d[1]; 
-      });
-    }
-
   }
 
-  drawLine(opts){
-
-  }
-
-  drawAxis(opts){
+  drawAxis(opts, scale){
     // 绘制坐标轴
     let height = opts.grid.height,
         width = opts.grid.width,
         padding = opts.grid.padding,
         xAxis = opts.xAxis,
         yAxis = opts.yAxis;
+    let xScale = scale.xScale,
+        yScale = scale.yScale;
+
    // x轴显示的条件，？？？
-    // 绘制横坐标比例尺，此处用的离散输入域
-    let xScale = d3.scaleBand()
-        .domain(d3.range(0, xAxis.data.length)) // 返回等差数列
-        .range([0, width - padding.left - padding.right]);
 
     // 绘制x轴，默认为bottom，以后优化;横轴ticks间距显示？？？
     this.svg.append('g')
@@ -520,10 +550,6 @@ class D3Charts {
       opts.series.forEach( seriesItem => {
         if(yItem.name === seriesItem.name){
           // y轴比例尺，设置比例？？
-          let yScale = seriesItem.yScale = d3.scaleLinear() // V4版本
-            .domain([0, d3.max(seriesItem.data)])
-            .range([height - padding.bottom - padding.top, 0]);
-
           let yDirectionScale, translate;
           if(yItem.position === 'left'){
             yDirectionScale = d3.axisLeft(yScale);
