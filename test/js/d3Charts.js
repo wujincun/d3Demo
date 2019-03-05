@@ -52,7 +52,7 @@ class D3Charts {
       yAxis: [
         {
           name: '测试1', // 名称，和series对应的指代这份y轴对应的数据
-          position: 'left', // left ,right
+          //position: 'left', // left ,right
           labels: { // 坐标轴标签
             formatter: null, // 刻度标签的内容格式器，支持字符串模板和回调函数两种形式。????
             rotate: 0, //刻度标签旋转的角度，在类目轴的类目标签显示不下的时候可以通过旋转防止标签之间重叠。
@@ -61,7 +61,17 @@ class D3Charts {
         },
         {
           name: 'left',
-          position: 'left', // left ,right
+          position: 'right', // left ,right
+          labels: { // 坐标轴标签
+            formatter: null, // 刻度标签的内容格式器，支持字符串模板和回调函数两种形式。????
+            rotate: 0, //刻度标签旋转的角度，在类目轴的类目标签显示不下的时候可以通过旋转防止标签之间重叠。
+            margin: 8, //刻度标签与轴线之间的距离。
+          },
+        },
+        {
+          name: 'left',
+          position: 'right', // left ,right
+          offset: 40,
           labels: { // 坐标轴标签
             formatter: null, // 刻度标签的内容格式器，支持字符串模板和回调函数两种形式。????
             rotate: 0, //刻度标签旋转的角度，在类目轴的类目标签显示不下的时候可以通过旋转防止标签之间重叠。
@@ -81,13 +91,15 @@ class D3Charts {
         {
           type:'line',
           name:'测试2',
-          stack: '堆叠',
-          data:[5,7,10]
+          //stack: '堆叠',
+          yAxisIndex: 1,
+          data:[5,7,30]
         },
         {
           type:'bar',
           name:'测试3',
           stack: '堆叠',
+          //yAxisIndex: 1,
           data:[5,4,10]
         },
         // {
@@ -114,7 +126,7 @@ class D3Charts {
       //   }
       // },
       //颜色： 折线，堆积折线图，柱状图，堆积柱状图，折柱图，饼图,环形图等含有数组的可以用colors
-      colors: ['#b7e1fc', '#b1d4cb', '#fae871', '#91cae9', '#d5f997'],
+      colors: ['#b7e1fc', '#d5f997', '#b1d4cb', '#91cae9','#fae871'],
     }
   }
   init(ele, opts){
@@ -152,7 +164,8 @@ class D3Charts {
           }
           opts.xAxisBarNum = xAxisBarNum;
       }else if(d.type == 'line'){
-          lineData.push(d);
+        d.stack && (opts.lineStack = true); // 只要有一条线的stack存在，多条线图就以堆叠线图显示，但是参数要全写上stack，否则纵轴绘制出错，应该怎么操作？
+        lineData.push(d);
       }
       
 
@@ -173,47 +186,14 @@ class D3Charts {
       // }
     })
     if(barData.length){
-      let stackBarData = this.stackLineBarDataProcess(barData, opts.xAxis.data);
-      opts.barData = stackBarData;
+      opts.barData = barData;
       this.drawBar(opts)
     }
     if(lineData.length){
-      let stackLineData = this.stackLineBarDataProcess(lineData, opts.xAxis.data);
-      opts.lineData = stackLineData;
+      opts.lineData = lineData;
       this.drawLine(opts)
     }
-   
-  }
-
-  stackLineBarDataProcess(initData, xAixisData){
-    let stackGroups = {}, stackData = []; //将barData根据stack的值进行分组
-    initData.forEach(item => {
-      let stackName = item.stack || item.name;
-      stackGroups[stackName] = stackGroups[stackName] || [];
-      stackGroups[stackName].push(item); // 根据stack分组
-    })
-    // 将数据转化
-    for(let i in stackGroups){
-      let item = stackGroups[i];
-       // 有堆叠的数据处理
-      let stackItemData = [], keys = []; 
-      xAixisData.forEach((xItem,xi) => {
-        stackItemData[xi] = {name: xItem}
-      })
-      item.forEach((value, key) => { // 不考虑缺少某一栏数据的情况
-        let data = value.data;
-        keys.push(value.name)
-        data.forEach((item, index) => {
-          stackItemData[index][value.name] = item;
-          stackItemData[index]['stack'] = i;
-        })
-      })
-      let series = d3.stack().keys(keys)
-        .order(d3.stackOrderNone)
-        .offset(d3.stackOffsetNone)(stackItemData);
-      stackData.push(series)
-    }
-    return stackData
+    
   }
   // 重复代码多，且
   drawPie(opts, series){
@@ -229,7 +209,7 @@ class D3Charts {
         .value(function(d) {  // 将数据中的value值作为饼图的区域值
           return d.value;
         });;
-    let pieData = pie(series.data);  
+    let pieData = pie(series.data); 
     let pieArc = d3.arc() 
     // 创建弧生成器，并且设置内外半径，优化，非环形时，radius必须是含有两项的数组吗？参考echarts
     // 半径的数值类型可以是300  30%， 优化？？ 
@@ -388,16 +368,19 @@ class D3Charts {
       }
     }
   }
-  
+  // 参考drawLine优化？
   drawBar(opts){
-    let barData = opts.barData;
+    let barData = this.stackBarDataProcess(opts.barData, opts.xAxis.data);
     let padding = opts.grid.padding;
-    let scale = this.scaleProcess(opts, barData)
+
+    let scale = this.scaleProcess(opts, {type: 'bar', data: barData})
     let colorScale = scale.colorScale,
         xScale = scale.xScale,
         xAxisScale = scale.xAxisScale,
-        yScale = scale.yScale;
-    this.drawAxis(opts, scale)
+        yScale = scale.yScale; 
+    !opts.drawAxis && this.drawAxis(opts, scale)
+      // 是否将堆积的柱状图一个纵轴，非堆叠的一个纵轴
+    opts.xAxisBarNum && this.drawStackYAxis(opts, yScale);
     barData.map((item, i) => {
       this.svg.append("g")
         .selectAll('g')
@@ -426,15 +409,126 @@ class D3Charts {
     })
   }
 
-  scaleProcess(opts, stackData){
+  drawLine(opts){
+    // 简单折线，堆叠折线,只能全部堆叠或不堆叠，不能部分
+    let padding = opts.grid.padding;
+    let lineData = opts.lineStack ? this.stackLineDataProcess(opts) : opts.lineData;
+    let scale = this.scaleProcess(opts, {type: 'line', data: lineData})
+    let colorScale = scale.colorScale,
+        xScale = scale.xScale,
+        yScale = scale.yScale; // 堆叠折线
+    !opts.drawAxis && this.drawAxis(opts, scale); //没有绘制过坐标轴
+    opts.lineStack && this.drawStackYAxis(opts, yScale);
+    let line = d3.line()
+      .x((d, i) => {
+        return xScale(opts.xAxis.data[i]) + xScale.bandwidth() / 2;
+      })
+      .y(d => {
+        return opts.lineStack ? yScale(d[1]) : yScale(d);
+      })
+    lineData.forEach((value, index) => {
+        let lineEl = this.svg
+          .append('g')
+          .attr('class', 'line')
+          .attr(
+            'transform',
+            'translate(' + padding.left + ',' + padding.top + ')'
+          );
+        lineEl
+          .append('path')
+          .attr('d', function(){
+              return opts.lineStack ? line(value) : line(value.data)
+          })
+          .style('fill', 'none')
+          .style('stroke-width', 1)
+          .style('stroke', colorScale(opts.lineStack ? value.key :value.name))
+          .style('stroke-opacity', 0.9);
+        lineEl
+          .append('g')
+          .attr('class', 'circles')
+          .selectAll('circle')
+          .data(opts.lineStack ? value : value.data)
+          .enter()
+          .append('circle')
+          .attr('cx', function(d, i) {
+            return xScale(opts.xAxis.data[i]) + xScale.bandwidth() / 2;
+          })
+          .attr('cy', function(d) {
+            return opts.lineStack ? yScale(d[1]) : yScale(d);
+          })
+          .attr('r', 3)
+          .attr('stroke-width', 1)
+          .attr('stroke','#ffffff')
+          .attr('fill', colorScale(opts.lineStack ? value.key :value.name))
+          .on('mouseover', function(d, i) { // 添加toolTips？并且需要在移动区域给全部提示，参考carsv
+            d3.select(this).attr('r', 4);
+          })
+          .on('mouseout', function(d, i) {
+            d3.select(this).attr('r',3);
+          });
+      });   
+  }
+
+  stackBarDataProcess(initData, xAixisData){
+    let stackGroups = {}, stackData = []; //将barData根据stack的值进行分组
+    initData.forEach(item => {
+      let stackName = item.stack || item.name;
+      stackGroups[stackName] = stackGroups[stackName] || [];
+      stackGroups[stackName].push(item); // 根据stack分组
+    })
+    // 将数据转化
+    for(let i in stackGroups){
+      let item = stackGroups[i];
+       // 有堆叠的数据处理
+      let stackItemData = [], keys = []; 
+      xAixisData.forEach((xItem,xi) => {
+        stackItemData[xi] = {name: xItem}
+      })
+      item.forEach((value, key) => { // 不考虑缺少某一栏数据的情况
+        let data = value.data;
+        keys.push(value.name)
+        data.forEach((item, index) => {
+          stackItemData[index][value.name] = item;
+          stackItemData[index]['stack'] = i;
+        })
+      })
+      let series = d3.stack().keys(keys)
+        .order(d3.stackOrderNone)
+        .offset(d3.stackOffsetNone)(stackItemData);
+      stackData.push(series)
+    }
+    return stackData
+  }
+
+  stackLineDataProcess(opts){
+    let xAixisData = opts.xAxis.data, lineData = opts.series;
+    let stackData = [], keys = []; 
+    xAixisData.forEach((xItem,xi) => {
+      stackData[xi] = {name: xItem}
+    })
+    lineData.forEach((value, key) => { // 不考虑缺少某一栏数据的情况
+      let data = value.data;
+      keys.push(value.name)
+      data.forEach((item, index) => {
+        stackData[index][value.name] = item;
+      })
+    })
+    let series = d3.stack().keys(keys)
+      .order(d3.stackOrderNone)
+      .offset(d3.stackOffsetNone)(stackData);
+    return series;
+  }
+
+  scaleProcess(opts, dataObj){
+    let type = dataObj.type,data = dataObj.data;
     let height = opts.grid.height,
         width = opts.grid.width,
         padding = opts.grid.padding,
         xAxis = opts.xAxis,
         yAxis = opts.yAxis,
         colors = opts.colors,
-        barData = opts.barData,
         xAxisBarNum = opts.xAxisBarNum;
+
       let colorScale = d3.scaleOrdinal()
           .domain(opts.series.map(value => {
             return value.name
@@ -444,21 +538,41 @@ class D3Charts {
       let xScale = d3.scaleBand() 
           .domain(opts.xAxis.data)
           .rangeRound([0, width-padding.left-padding.right])
-          .padding(0.1);   
-      // 多个柱在x轴的一个横坐标上的比例尺    
-      let xAxisScale = d3.scaleBand()  //柱状图x区间段比例尺
+          .padding(0.1); 
+
+      //多纵轴，
+      // 多个柱在x轴的一个横坐标上的比例尺  
+      let xAxisScale, yScale;
+      if(type === 'bar'){ //堆叠  判断条件？？？？
+        if(xAxisBarNum){
+          xAxisScale = d3.scaleBand()  //柱状图x区间段比例尺
           .domain(xAxisBarNum)    //xAxisBarNum为数据的名称
           .rangeRound([0, xScale.bandwidth()])
           .padding(0.1);
-      // y轴要判断是不是多纵轴，而且是不是堆叠使用？？？
-      // 先认为一个纵轴
-     let yScaleData = stackData.reduce((prev, cur) => {
-        return  prev.concat(cur)
-     }, [])   
-     let yScale = d3.scaleLinear()
-        .domain([d3.min(yScaleData, stackMin), d3.max(yScaleData, stackMax)])
-        .rangeRound([height - padding.bottom - padding.top, 0]);
+        }
+        let yScaleData = data.reduce((prev, cur) => {
+            return  prev.concat(cur)
+         }, []);
+        yScale = d3.scaleLinear()
+            .domain([d3.min(yScaleData, stackMin), d3.max(yScaleData, stackMax)])
+            .rangeRound([height - padding.bottom - padding.top, 0]);
 
+      }else if(type === 'line'){ // 仍旧判断堆叠情况
+        //堆叠情况？？？
+        if(opts.lineStack){
+          console.log(d3.min(data, stackMin))
+          yScale = d3.scaleLinear()
+            .domain([d3.min(data, stackMin), d3.max(data, stackMax)])
+            .rangeRound([height - padding.bottom - padding.top, 0]);
+        }else{
+          yScale = d3.scaleLinear()
+            .domain([d3.min(data, (d)=>{return d3.min(d.data)}), d3.max(data, (d)=>{return d3.max(d.data)})])
+            .rangeRound([height - padding.bottom - padding.top, 0]);
+        }
+      }
+      
+      // y轴要判断是不是多纵轴，而且是不是堆叠使用？？？
+      
     return {
       colorScale,
       xScale,
@@ -477,56 +591,18 @@ class D3Charts {
       });
     }
   }
-  drawLine(opts){
-    let lineData = opts.lineData;
-    let padding = opts.grid.padding;
-    let scale = this.scaleProcess(opts, lineData)
-    let colorScale = scale.colorScale,
-        xScale = scale.xScale,
-        xAxisScale = scale.xAxisScale,
-        yScale = scale.yScale;
-    this.drawAxis(opts, scale)
-    lineData.map((item, i) => {
-      this.svg.append("g")
-        .selectAll('g')
-        .data(item)
-        .enter()
-        .append("g")
-        .attr("fill", function(d) { 
-          return colorScale(d.key); 
-        })
-        .selectAll("rect")
-        .data(function(d) { return d; })
-        .enter()
-        .append("rect")
-        .attr("width", xAxisScale.bandwidth())
-        .attr("x", function(d, j) { 
-          return xScale(d.data.name) + xAxisScale(d.data.stack)
-
-        })
-        .attr("y", function(d) { 
-          return yScale(d[1]); 
-        })
-        .attr("height", function(d) { 
-          return yScale(d[0]) - yScale(d[1]); 
-        })
-        .attr('transform', 'translate(' + padding.left + ',' + padding.top + ')')
-    })
-  }
-
+  // scale和Axis需要重新梳理
+  // 绘制color和X轴
   drawAxis(opts, scale){
     // 绘制坐标轴
     let height = opts.grid.height,
         width = opts.grid.width,
         padding = opts.grid.padding,
+        series = opts.series,
         xAxis = opts.xAxis,
         yAxis = opts.yAxis;
-    let xScale = scale.xScale,
-        yScale = scale.yScale;
-
-   // x轴显示的条件，？？？
-
-    // 绘制x轴，默认为bottom，以后优化;横轴ticks间距显示？？？
+    let xScale = scale.xScale;
+    // 绘制x轴，默认为bottom，以后优化;横轴ticks间距显示？？？ 不画多个？？？
     this.svg.append('g')
         .attr('class', 'axis')
         .attr('transform', 'translate(' + padding.left + ',' + (height - padding.bottom) + ')')
@@ -541,44 +617,103 @@ class D3Charts {
           let distance = xAxis.labels.margin / Math.cos(Number(xAxis.labels.rotate)) 
           return 'rotate(' + xAxis.labels.rotate + 'deg) translate('+ distance +'px, -'+ 10 +'px)'; 
         })
-
     // y轴显示的条件？？？
-    // 绘制y轴，现在只考虑最多两条的情况，左右分布，对应条件？y轴多条比例尺，多条情况后面优化， 
-    yAxis.forEach(yItem => {
-      //双重循环优化？？？？
-      //暂时先利用name相同作为判断，series里与yAxis里name相同的数据为此yScale,并且series里的数据要有对应的yScale,name作为判断条件不合适
-      opts.series.forEach( seriesItem => {
-        if(yItem.name === seriesItem.name){
-          // y轴比例尺，设置比例？？
-          let yDirectionScale, translate;
-          if(yItem.position === 'left'){
-            yDirectionScale = d3.axisLeft(yScale);
-            translate = 'translate(' + padding.left + ',' + padding.top + ')';
-          }else if(yItem.position === 'right'){
-            yDirectionScale = d3.axisRight(yScale)
-            translate = 'translate(' + (width - padding.right) + ',' + padding.top + ')';
+    this.drawYAxis(opts)
+    opts.drawAxis = true;
+  }
+  // 绘制y轴
+  drawYAxis(opts){
+    let height = opts.grid.height,
+        width = opts.grid.width,
+        padding = opts.grid.padding,
+        series = opts.series,
+        yAxis = opts.yAxis;
+     yAxis.forEach((yItem, yIndex) => {
+    // 双重循环优化,没有判断堆积图？？？
+      let yDirectionScale, translate, yScale, typeObj = {};
+      series.forEach( (seriesItem, seriesIndex) => { 
+        if(!seriesItem.yAxisIndex){
+          seriesItem.yAxisIndex = 0;
+        }
+        if(!seriesItem.stack ){ // 没有堆叠才正常绘制, 还要区分type
+          // 如果是有stack的折线图，
+          if(opts.lineStack && seriesItem.type === 'line'){
+            return
           }
-          // 绘制y轴
+          if(seriesItem.yAxisIndex === yIndex){
+            //要按图形类型区分
+            typeObj[seriesItem.type] ? typeObj[seriesItem.type].push(seriesItem) : typeObj[seriesItem.type] = [seriesItem]
+          }
+        }
+      })
+      // 普通的多种图多条y轴绘制
+      for(let key in typeObj){
+        let item = typeObj[key];
+        if((key === 'line' || key === 'bar') && item.length){
+          yScale = d3.scaleLinear()
+                .domain([d3.min(item, (d)=>{return d3.min(d.data)}), d3.max(item, (d)=>{return d3.max(d.data)})])
+                .rangeRound([height - padding.bottom - padding.top, 0]);
+          let offset = yItem.offset || 0; // offset默认值为0
+          let position = yItem.position;// position 默认为left？？ 应该是默认第一个没有position的为left
+          if( position === 'left'){
+            yDirectionScale = d3.axisLeft(yScale);
+            translate = 'translate(' + Number(padding.left + offset) + ',' + padding.top + ')';
+          }else if(position === 'right'){
+            yDirectionScale = d3.axisRight(yScale)
+            translate = 'translate(' + (width - padding.right + offset) + ',' + padding.top + ')';
+          }else{
+            if(this.svg.selectAll('.leftAxis')._groups[0].length){
+              position = "right";
+              yDirectionScale = d3.axisRight(yScale);
+              translate = 'translate(' + (width - padding.right) + ',' + padding.top + ')';
+            }else{
+              position = "left";
+              yDirectionScale = d3.axisLeft(yScale);
+              translate = 'translate(' + padding.left + ',' + padding.top + ')';
+            }
+          }
+           // 绘制y轴
           let yaxis = this.svg.append('g')
-            .attr('class', 'axis')
+            .attr('class', `${position}Axis`)
             .attr('transform', translate)
-            .call(yDirectionScale)
-            .style('font-size', '12'); // d3.axisLeft(yScale) --V4版本
+            .attr('stroke', 'red')
+            .call(yDirectionScale.ticks(5)) //设置ticks？？？
+            //.style('font-size', '12'); // d3.axisLeft(yScale) --V4版本
           // 绘制y轴名称 ???没有显示 //判断显示条件？？？
           yaxis.append('text')
               .text(yItem.name)
               .attr('transform','translate(' + -25 + ',' + -15 + ')');
-
-        }
-      })
-
-      // let seriesItem = opts.series.find(item => {
-      //   return item.name === d.name
-      // })
-      // seriesItem.yScale = d3.scaleLinear() // V4版本
-      //   .domain([0, d3.max(seriesItem.data)])
-      //   .range([height - padding.bottom - padding.top, 0]);
+        } 
+      }
     })
+  }
+  // 绘制堆叠y轴
+  drawStackYAxis(opts, yScale){
+    let height = opts.grid.height,
+        width = opts.grid.width,
+        padding = opts.grid.padding;
+    let yDirectionScale,translate,position;
+    if(this.svg.selectAll('.leftAxis')._groups[0].length){
+      position = "right";
+      yDirectionScale = d3.axisRight(yScale);
+      translate = 'translate(' + (width - padding.right) + ',' + padding.top + ')';
+    }else{
+      position = "left";
+      yDirectionScale = d3.axisLeft(yScale);
+      translate = 'translate(' + padding.left + ',' + padding.top + ')';
+    }
+    
+   let yaxis = this.svg.append('g')
+      .attr('class', `${position}Axis`) 
+      .attr('transform', translate)
+      .attr('stroke', 'red')
+      .call(yDirectionScale.ticks(5)) //设置ticks？？？
+      .style('font-size', '12'); // d3.axisLeft(yScale) --V4版本
+      // 绘制y轴名称 ???没有显示 //判断显示条件？？？
+
+      yaxis.append('text')
+          .text('堆叠')
+          .attr('transform','translate(' + -25 + ',' + -15 + ')');
   }
   // 标题可以在图外边用元素设置
   drawTitle(opts){
